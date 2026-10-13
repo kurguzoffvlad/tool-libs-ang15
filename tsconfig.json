@@ -20,18 +20,10 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "paths": {
-      "tool-config-to-lib-ang15": [
-        "dist/tool-config-to-lib-ang15"
-      ],
-      "tool-dom-ang15": [
-        "dist/tool-dom-ang15"
-      ],
-      "tool-exchange-ang15": [
-        "dist/tool-exchange-ang15"
-      ],
-      "tool-width-page-ang15": [
-        "dist/tool-width-page-ang15"
-      ]
+      "tool-config-to-lib-ang15": [ "projects/tool-config-to-lib-ang15/src/public-api.ts" ],
+      "tool-dom-ang15": [ "projects/tool-dom-ang15/src/public-api.ts" ],
+      "tool-exchange-ang15": [ "projects/tool-exchange-ang15/src/public-api.ts" ],
+      "tool-width-page-ang15": [ "projects/tool-width-page-ang15/src/public-api.ts" ]
     },
     "lib": [
       "ES2022",
