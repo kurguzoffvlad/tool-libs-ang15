@@ -2,11 +2,10 @@
   "name": "tool-libs-ang15",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "build:libs": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
-    "start": "npm run build:libs && ng serve shell",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "BUILD:LIBS": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
+    "PROD-HTTP": "powershell -NoProfile -Command \"$ip = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress; $url = 'http://' + $ip + ':4343'; Write-Host ('Access on: ' + $url); Start-Job { Start-Sleep -Seconds 8; Start-Process $args[0] } -ArgumentList $url | Out-Null; ng serve --host 0.0.0.0 --port 4343\"",
+    "DEV": "ng serve shell",
+    "ng": "ng"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +18,7 @@
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
     "rxjs": "~7.8.0",
+    "tool-log": "0.0.17",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
