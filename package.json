@@ -7,10 +7,10 @@
     "PROD-HTTP": "powershell -NoProfile -Command \"$ip = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress; $url = 'http://' + $ip + ':4343'; Write-Host ('Access on: ' + $url); Start-Job { Start-Sleep -Seconds 8; Start-Process $args[0] } -ArgumentList $url | Out-Null; ng serve --host 0.0.0.0 --port 4343\"",
     "DEV": "ng serve shell",
 
-    "PUBLISH:CONFIG": "npm --prefix projects/tool-config-to-lib-ang15 version patch --no-git-tag-version && ng build tool-config-to-lib-ang15 && npm publish ./dist/tool-config-to-lib-ang15",
-    "PUBLISH:DOM": "npm --prefix projects/tool-dom-ang15 version patch --no-git-tag-version && ng build tool-dom-ang15 && npm publish ./dist/tool-dom-ang15",
-    "PUBLISH:EXCHANGE": "npm --prefix projects/tool-exchange-ang15 version patch --no-git-tag-version && ng build tool-exchange-ang15 && npm publish ./dist/tool-exchange-ang15",
-    "PUBLISH:WIDTH": "npm --prefix projects/tool-width-page-ang15 version patch --no-git-tag-version && ng build tool-width-page-ang15 && npm publish ./dist/tool-width-page-ang15",
+    "PUBLISH:config": "npm --prefix projects/tool-config-to-lib-ang15 version patch --no-git-tag-version && ng build tool-config-to-lib-ang15 && npm publish ./dist/tool-config-to-lib-ang15",
+    "PUBLISH:dom": "npm --prefix projects/tool-dom-ang15 version patch --no-git-tag-version && ng build tool-dom-ang15 && npm publish ./dist/tool-dom-ang15",
+    "PUBLISH:exchange": "npm --prefix projects/tool-exchange-ang15 version patch --no-git-tag-version && ng build tool-exchange-ang15 && npm publish ./dist/tool-exchange-ang15",
+    "PUBLISH:width": "npm --prefix projects/tool-width-page-ang15 version patch --no-git-tag-version && ng build tool-width-page-ang15 && npm publish ./dist/tool-width-page-ang15",
 
     "PUBLISH:ALL": "npm run PUBLISH:CONFIG && npm run PUBLISH:DOM && npm run PUBLISH:EXCHANGE && npm run PUBLISH:WIDTH"
   },
