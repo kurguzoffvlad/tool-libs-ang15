@@ -1,6 +1,8 @@
 {
   "name": "tool-libs-ang15",
   "version": "0.0.0",
+  "description": "Workspace for Angular 15",
+  "author": "Vladimir Kurguzov <kurguzov74@gmail.com>",
   "scripts": {
     "ng": "ng",
     "BUILD:LIBS": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
