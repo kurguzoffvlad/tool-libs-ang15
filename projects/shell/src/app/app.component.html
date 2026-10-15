@@ -1,16 +1,16 @@
 <header class="app-header">
-  <label for="lib-select">Библиотека:</label>
-  <select
-    id="lib-select"
-    [ngModel]="selectedLib"
-    (ngModelChange)="onLibChange($event)">
-    <option *ngFor="let lib of libraries" [value]="lib.value">
-      {{ lib.label }}
-    </option>
-  </select>
+    <label for="lib-select">Библиотека:</label>
+    <select
+        id="lib-select"
+        [ngModel]="selectedLib"
+        (ngModelChange)="onLibChange($event)">
+        <option *ngFor="let lib of libraries" [value]="lib.value">
+            {{ lib.label }}
+        </option>
+    </select>
 </header>
 
 <main class="app-content">
-  <!-- здесь будет отображаться стартовая страница выбранной библиотеки -->
-  <router-outlet></router-outlet>
+    <!-- здесь будет отображаться стартовая страница выбранной библиотеки -->
+    <router-outlet></router-outlet>
 </main>

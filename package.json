@@ -1,48 +1,46 @@
 {
-  "name": "tool-libs-ang15",
-  "version": "0.0.0",
-  "description": "Workspace for Angular 15",
-  "author": "Vladimir Kurguzov <kurguzov74@gmail.com>",
-  "scripts": {
-    "ng": "ng",
-    "BUILD:LIBS": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
-    "PROD-HTTP": "powershell -NoProfile -Command \"$ip = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress; $url = 'http://' + $ip + ':4343'; Write-Host ('Access on: ' + $url); Start-Job { Start-Sleep -Seconds 8; Start-Process $args[0] } -ArgumentList $url | Out-Null; ng serve --host 0.0.0.0 --port 4343\"",
-    "DEV": "ng serve shell",
-
-    "PUBLISH:config": "npm --prefix projects/tool-config-to-lib-ang15 version patch --no-git-tag-version && ng build tool-config-to-lib-ang15 && npm publish ./dist/tool-config-to-lib-ang15",
-    "PUBLISH:dom": "npm --prefix projects/tool-dom-ang15 version patch --no-git-tag-version && ng build tool-dom-ang15 && npm publish ./dist/tool-dom-ang15",
-    "PUBLISH:exchange": "npm --prefix projects/tool-exchange-ang15 version patch --no-git-tag-version && ng build tool-exchange-ang15 && npm publish ./dist/tool-exchange-ang15",
-    "PUBLISH:width": "npm --prefix projects/tool-width-page-ang15 version patch --no-git-tag-version && ng build tool-width-page-ang15 && npm publish ./dist/tool-width-page-ang15",
-
-    "PUBLISH:ALL": "npm run PUBLISH:CONFIG && npm run PUBLISH:DOM && npm run PUBLISH:EXCHANGE && npm run PUBLISH:WIDTH"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^15.2.0",
-    "@angular/common": "^15.2.0",
-    "@angular/compiler": "^15.2.0",
-    "@angular/core": "^15.2.0",
-    "@angular/forms": "^15.2.0",
-    "@angular/platform-browser": "^15.2.0",
-    "@angular/platform-browser-dynamic": "^15.2.0",
-    "@angular/router": "^15.2.0",
-    "rxjs": "~7.8.0",
-    "tool-log": "0.0.17",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^15.2.11",
-    "@angular/cli": "~15.2.11",
-    "@angular/compiler-cli": "^15.2.0",
-    "@types/jasmine": "~4.3.0",
-    "jasmine-core": "~4.5.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "ng-packagr": "^15.2.2",
-    "typescript": "~4.9.4"
-  }
+    "name": "tool-libs-ang15",
+    "version": "0.0.0",
+    "description": "Workspace for Angular 15",
+    "author": "Vladimir Kurguzov <kurguzov74@gmail.com>",
+    "scripts": {
+        "ng": "ng",
+        "BUILD:LIBS": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
+        "PROD-HTTP": "powershell -NoProfile -Command \"$ip = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress; $url = 'http://' + $ip + ':4343'; Write-Host ('Access on: ' + $url); Start-Job { Start-Sleep -Seconds 8; Start-Process $args[0] } -ArgumentList $url | Out-Null; ng serve --host 0.0.0.0 --port 4343\"",
+        "DEV": "ng serve shell",
+        "PUBLISH:config": "npm --prefix projects/tool-config-to-lib-ang15 version patch --no-git-tag-version && ng build tool-config-to-lib-ang15 && npm publish ./dist/tool-config-to-lib-ang15",
+        "PUBLISH:dom": "npm --prefix projects/tool-dom-ang15 version patch --no-git-tag-version && ng build tool-dom-ang15 && npm publish ./dist/tool-dom-ang15",
+        "PUBLISH:exchange": "npm --prefix projects/tool-exchange-ang15 version patch --no-git-tag-version && ng build tool-exchange-ang15 && npm publish ./dist/tool-exchange-ang15",
+        "PUBLISH:width": "npm --prefix projects/tool-width-page-ang15 version patch --no-git-tag-version && ng build tool-width-page-ang15 && npm publish ./dist/tool-width-page-ang15",
+        "PUBLISH:ALL": "npm run PUBLISH:CONFIG && npm run PUBLISH:DOM && npm run PUBLISH:EXCHANGE && npm run PUBLISH:WIDTH"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "^15.2.0",
+        "@angular/common": "^15.2.0",
+        "@angular/compiler": "^15.2.0",
+        "@angular/core": "^15.2.0",
+        "@angular/forms": "^15.2.0",
+        "@angular/platform-browser": "^15.2.0",
+        "@angular/platform-browser-dynamic": "^15.2.0",
+        "@angular/router": "^15.2.0",
+        "rxjs": "~7.8.0",
+        "tool-log": "0.0.17",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.12.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^15.2.11",
+        "@angular/cli": "~15.2.11",
+        "@angular/compiler-cli": "^15.2.0",
+        "@types/jasmine": "~4.3.0",
+        "jasmine-core": "~4.5.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.0.0",
+        "ng-packagr": "^15.2.2",
+        "typescript": "~4.9.4"
+    }
 }
