@@ -4,9 +4,7 @@
         id="lib-select"
         [ngModel]="selectedLib"
         (ngModelChange)="onLibChange($event)">
-        <option *ngFor="let lib of libraries" [value]="lib.value">
-            {{ lib.label }}
-        </option>
+        <option *ngFor="let lib of libraries" [value]="lib.value">{{ lib.label }}</option>
     </select>
 </header>
 

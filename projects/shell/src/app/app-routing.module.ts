@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'tool-config-to-lib', pathMatch: 'full' },
+    { path: '', redirectTo: 'tool-width-page', pathMatch: 'full' },
 
     {
         path: 'tool-config-to-lib',
@@ -25,7 +25,7 @@ const routes: Routes = [
             import('tool-width-page-ang15').then(m => m.ToolWidthPageAng15Module),
     },
 
-    { path: '**', redirectTo: 'tool-config-to-lib' },
+    { path: '**', redirectTo: 'tool-width-page' },
 ];
 
 @NgModule({

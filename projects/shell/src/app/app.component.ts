@@ -1,46 +1,53 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
-import {ToolConfigToLibAng15Service} from 'tool-config-to-lib-ang15';
-import {isLogLocalhost, red} from 'tool-log';
+import { ToolConfigToLibAng15Service } from 'tool-config-to-lib-ang15';
+import { isLogLocalhost, red } from 'tool-log';
 
-interface LibOption {
-    value: string;
-    label: string;
-}
+interface LibOption { value: string; label: string; }
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-
+export class AppComponent implements OnInit, OnDestroy {
     libraries: LibOption[] = [
-        {value: 'tool-config-to-lib', label: 'tool-config-to-lib'},
-        {value: 'tool-dom', label: 'tool-dom'},
-        {value: 'tool-exchange', label: 'tool-exchange'},
-        {value: 'tool-width-page', label: 'tool-width-page'},
+        { value: 'tool-width-page', label: 'tool-width-page' },
+        { value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
+        { value: 'tool-dom', label: 'tool-dom' },
+        { value: 'tool-exchange', label: 'tool-exchange' },
     ];
 
-    selectedLib = 'tool-config-to-lib';
+    selectedLib = 'tool-width-page';
 
-    constructor(
-        private router: Router,
-        private lib: ToolConfigToLibAng15Service
-    ) {
+    private destroy$ = new Subject<void>();
+
+    constructor(private router: Router, private lib: ToolConfigToLibAng15Service) {}
+
+    ngOnInit(): void {
+        const str = this.lib.doSomething();
+        console.log('str', str);
+        red('isLogLocalhost ===', isLogLocalhost);
+
+        this.router.events.pipe(
+            filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+            map(e => e.urlAfterRedirects.split('/')[1] || ''),
+            takeUntil(this.destroy$),
+        ).subscribe(seg => {
+            if (seg) this.selectedLib = seg;
+        });
     }
 
-    ngOnInit() {
-        const str = this.lib.doSomething(); // → console: 'called'
-        console.log('str', str);
-
-        // для red нужно было отдельно импортировать в dependencies библиотеку 'tool-islocalhost'
-        red('isLogLocalhost ===', isLogLocalhost);
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 
     onLibChange(value: string): void {
         this.selectedLib = value;
-        this.router.navigate([`/${value}`]).then();
+        this.router.navigate([`/${value}`]);
     }
 }
