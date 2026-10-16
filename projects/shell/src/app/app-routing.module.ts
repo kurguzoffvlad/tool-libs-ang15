@@ -1,39 +1,35 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-
-// Стартовые компоненты библиотек (должны экспортироваться из public-api каждой библиотеки)
-import {ToolConfigToLibAng15Component} from 'tool-config-to-lib-ang15';
-import {ToolDomAng15Component} from 'tool-dom-ang15';
-import {ToolExchangeAng15Component} from 'tool-exchange-ang15';
-import {ToolWidthPageAng15Component} from 'tool-width-page-ang15';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-    {path: '', redirectTo: 'tool-config-to-lib', pathMatch: 'full'},
+    { path: '', redirectTo: 'tool-config-to-lib', pathMatch: 'full' },
 
     {
         path: 'tool-config-to-lib',
-        component: ToolConfigToLibAng15Component
+        loadChildren: () =>
+            import('tool-config-to-lib-ang15').then(m => m.ToolConfigToLibAng15Module),
     },
     {
         path: 'tool-dom',
-        component: ToolDomAng15Component
+        loadChildren: () =>
+            import('tool-dom-ang15').then(m => m.ToolDomAng15Module),
     },
     {
         path: 'tool-exchange',
-        component: ToolExchangeAng15Component
+        loadChildren: () =>
+            import('tool-exchange-ang15').then(m => m.ToolExchangeAng15Module),
     },
     {
         path: 'tool-width-page',
-        component: ToolWidthPageAng15Component
+        loadChildren: () =>
+            import('tool-width-page-ang15').then(m => m.ToolWidthPageAng15Module),
     },
 
-    {path: '**', redirectTo: 'tool-config-to-lib'}
+    { path: '**', redirectTo: 'tool-config-to-lib' },
 ];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
-
+export class AppRoutingModule {}
