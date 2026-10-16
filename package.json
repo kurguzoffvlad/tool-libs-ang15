@@ -7,7 +7,7 @@
         "ng": "ng",
         "BUILD:LIBS": "ng build tool-config-to-lib-ang15 && ng build tool-dom-ang15 && ng build tool-exchange-ang15 && ng build tool-width-page-ang15",
         "PROD-HTTP": "powershell -NoProfile -Command \"$ip = (Get-NetIPAddress | Where-Object { $_.AddressFamily -eq 'IPv4' -and $_.PrefixOrigin -eq 'Dhcp' }).IPAddress; $url = 'http://' + $ip + ':4343'; Write-Host ('Access on: ' + $url); Start-Job { Start-Sleep -Seconds 8; Start-Process $args[0] } -ArgumentList $url | Out-Null; ng serve --host 0.0.0.0 --port 4343\"",
-        "DEV": "ng serve shell",
+        "DEV": "ng serve shell --open",
         "PUBLISH:config": "npm --prefix projects/tool-config-to-lib-ang15 version patch --no-git-tag-version && ng build tool-config-to-lib-ang15 && npm publish ./dist/tool-config-to-lib-ang15",
         "PUBLISH:dom": "npm --prefix projects/tool-dom-ang15 version patch --no-git-tag-version && ng build tool-dom-ang15 && npm publish ./dist/tool-dom-ang15",
         "PUBLISH:exchange": "npm --prefix projects/tool-exchange-ang15 version patch --no-git-tag-version && ng build tool-exchange-ang15 && npm publish ./dist/tool-exchange-ang15",
