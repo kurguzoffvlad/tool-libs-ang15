@@ -22,7 +22,15 @@
     "paths": {
       "tool-config-to-lib-ang15": [ "projects/tool-config-to-lib-ang15/src/public-api.ts" ],
       "tool-dom-ang15": [ "projects/tool-dom-ang15/src/public-api.ts" ],
-      "tool-exchange-ang15": [ "projects/tool-exchange-ang15/src/public-api.ts" ],
+      "tool-exchange-ang15": [
+        "projects/tool-exchange-ang15/src/public-api.ts"
+      ],
+      "tool-page-ang15": [
+        "dist/tool-page-ang15"
+      ],
+      "tool-screen-ang15": [
+        "dist/tool-screen-ang15"
+      ],
       "tool-width-page-ang15": [ "projects/tool-width-page-ang15/src/public-api.ts" ]
     },
     "lib": [

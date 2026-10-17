@@ -253,6 +253,72 @@
           }
         }
       }
+    },
+    "tool-screen-ang15": {
+      "projectType": "library",
+      "root": "projects/tool-screen-ang15",
+      "sourceRoot": "projects/tool-screen-ang15/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tool-screen-ang15/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tool-screen-ang15/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tool-screen-ang15/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/tool-screen-ang15/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "tool-page-ang15": {
+      "projectType": "library",
+      "root": "projects/tool-page-ang15",
+      "sourceRoot": "projects/tool-page-ang15/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/tool-page-ang15/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tool-page-ang15/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/tool-page-ang15/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/tool-page-ang15/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
