@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ToolScreenAng15Module} from "../../../tool-screen-ang15/src/lib/tool-screen-ang15.module";
 
 const routes: Routes = [
     { path: '', redirectTo: 'tool-width-page', pathMatch: 'full' },
@@ -28,10 +27,7 @@ const routes: Routes = [
     {
         path: 'tool-screen',
         loadChildren: () =>
-            import('tool-screen-ang15/demo').then(m => {
-                console.log('DEMO MODULE LOADED', m);
-                return m.TOOL_SCREEN_DEMO_ROUTES;
-            }),
+            import('./modules/screen/screen.module').then(m => m.ScreenModule),
     },
 
     { path: '**', redirectTo: 'tool-width-page' },

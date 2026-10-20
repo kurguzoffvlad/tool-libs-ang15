@@ -25,7 +25,6 @@
       "tool-exchange-ang15": ["projects/tool-exchange-ang15/src/public-api.ts"],
       "tool-page-ang15": ["projects/tool-page-ang15/src/public-api.ts"],
       "tool-screen-ang15": ["projects/tool-screen-ang15/src/public-api.ts"],
-      "tool-screen-ang15/demo": ["projects/tool-screen-ang15/src/public-api.demo.ts"],
       "tool-width-page-ang15": ["projects/tool-width-page-ang15/src/public-api.ts" ]
     },
     "lib": [

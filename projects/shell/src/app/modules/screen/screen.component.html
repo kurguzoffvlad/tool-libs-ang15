@@ -1,0 +1,8 @@
+<h3>tool-screen demo</h3>
+<p>type: {{ (screen.state$ | async)?.screen?.type }}</p>
+<p>orientation: {{ (screen.state$ | async)?.screen?.orientation }}</p>
+<p>innerWidth: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerWidth }}</p>
+<pre>{{ (screen.state$ | async) | json }}</pre>
+
+<button (click)="shrink()">phoneMaxSize = 800</button>
+<button (click)="refresh()">refresh()</button>
