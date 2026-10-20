@@ -1,8 +1,13 @@
-<h3>tool-screen demo</h3>
-<p>type: {{ (screen.state$ | async)?.screen?.type }}</p>
-<p>orientation: {{ (screen.state$ | async)?.screen?.orientation }}</p>
-<p>innerWidth: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerWidth }}</p>
-<pre>{{ (screen.state$ | async) | json }}</pre>
-
-<button (click)="shrink()">phoneMaxSize = 800</button>
-<button (click)="refresh()">refresh()</button>
+<ng-container *ngIf="screen.state$ | async as state">
+    <div class="screen-box"
+         [class]="'screen-box type-' + (state.screen.type ?? 'unknown')
+                 + ' orientation-' + (state.screen.orientation ?? 'unknown')">
+        <h3>tool-screen</h3>
+        <p>type: {{ state.screen.type }}</p>
+        <p>orientation: {{ state.screen.orientation }}</p>
+        <p>innerWidth: {{ state.screen.options.proportions.innerWidth }}</p>
+        <pre>{{ state | json }}</pre>
+        <button (click)="shrink()">phoneMaxSize = 800</button>
+        <button (click)="refresh()">refresh()</button>
+    </div>
+</ng-container>
