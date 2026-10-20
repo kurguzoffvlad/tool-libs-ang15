@@ -3,10 +3,13 @@
          [class]="'screen-box type-' + (state.screen.type ?? 'unknown')
                  + ' orientation-' + (state.screen.orientation ?? 'unknown')">
         <h3>tool-screen</h3>
+
         <p>type: {{ state.screen.type }}</p>
         <p>orientation: {{ state.screen.orientation }}</p>
         <p>innerWidth: {{ state.screen.options.proportions.innerWidth }}</p>
+
         <pre>{{ state | json }}</pre>
+
         <button (click)="shrink()">phoneMaxSize = 800</button>
         <button (click)="refresh()">refresh()</button>
     </div>
