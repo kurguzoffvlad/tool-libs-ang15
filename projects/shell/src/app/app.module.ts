@@ -4,9 +4,10 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 
+import {ToolScreenAng15Module} from "tool-screen-ang15";
 import {ToolConfigToLibAng15Module} from "tool-config-to-lib-ang15";
-import {configFromApp} from "./tool-config-to-lib/tool-config-to-lib.interface";
 
+import {configFromApp} from "./tool-config-to-lib/tool-config-to-lib.interface";
 import {AppComponent} from './app.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import {AppComponent} from './app.component';
         BrowserModule,
         FormsModule,
         AppRoutingModule,
+        ToolScreenAng15Module.forRoot(),
         ToolConfigToLibAng15Module.forRoot(configFromApp)
     ],
     providers: [],

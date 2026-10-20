@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
         { value: 'tool-dom', label: 'tool-dom' },
         { value: 'tool-exchange', label: 'tool-exchange' },
+        { value: 'tool-screen', label: 'tool-screen' },
     ];
 
     selectedLib = 'tool-width-page';
