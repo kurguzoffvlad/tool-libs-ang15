@@ -12,5 +12,12 @@
 
         <button (click)="shrink()">phoneMaxSize = 800</button>
         <button (click)="refresh()">refresh()</button>
+
+        <p>maxSize: {{ (screen.state$ | async)?.screen?.options?.maxSize }}</p>
+        <p>innerWidth: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerWidth }}</p>
+        <p>innerHeight: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerHeight }}</p>
     </div>
 </ng-container>
+
+
+
