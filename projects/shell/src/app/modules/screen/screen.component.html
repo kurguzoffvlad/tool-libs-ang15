@@ -10,7 +10,7 @@
 
         <pre>{{ state | json }}</pre>
 
-        <button (click)="shrink()">phoneMaxSize = 800</button>
+        <button (click)="shrink()">phoneMaxSize = 800 (phone теряется)</button>
         <button (click)="refresh()">refresh()</button>
 
         <p>maxSize: {{ (screen.state$ | async)?.screen?.options?.maxSize }}</p>
