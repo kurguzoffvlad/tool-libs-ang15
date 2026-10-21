@@ -7,7 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {ToolScreenAng15Module} from 'tool-screen-ang15';
 import {ToolConfigToLibAng15Module} from 'tool-config-to-lib-ang15';
 
-import {configFromApp} from './modules/config/tool-config-to-lib.interface';
+import {configFromApp} from './modules/config/tool-config-to-lib.config';
 import {AppComponent} from './app.component';
 
 @NgModule({

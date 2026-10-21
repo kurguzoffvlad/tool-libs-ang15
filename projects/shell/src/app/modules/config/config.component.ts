@@ -8,12 +8,12 @@ import { isLogLocalhost, red } from 'tool-log';
     styleUrls: ['./config.component.scss']
 })
 export class ConfigComponent {
-    public apiUrl = this.lib.doSomething();
+    public apiUrl: string;
 
     constructor(private lib: ToolConfigToLibAng15Service) {
+        this.apiUrl = this.lib.doSomething();
         console.log('apiUrl', this.apiUrl);
-        console.log('this', this);
-        this.lib.cfg.log('Сообщение из приложения через библиотеку')
+        this.lib.cfg.log('Сообщение из приложения через библиотеку');
         red('isLogLocalhost ===', isLogLocalhost);
     }
 }
