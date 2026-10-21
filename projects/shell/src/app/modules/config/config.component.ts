@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ToolConfigToLibAng15Service} from "tool-config-to-lib-ang15";
 
 @Component({
     selector: 'app-config',
@@ -6,5 +7,7 @@ import {Component} from '@angular/core';
     styleUrls: ['./config.component.scss']
 })
 export class ConfigComponent {
+    public apiUrl = this.lib.doSomething();
 
+    constructor(private lib: ToolConfigToLibAng15Service) {}
 }
