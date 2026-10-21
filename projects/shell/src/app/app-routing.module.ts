@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-	{path: '', redirectTo: 'tool-width-page', pathMatch: 'full'},
+	{ path: '', redirectTo: 'tool-width-page', pathMatch: 'full' },
 
 	{
 		path: 'tool-config-to-lib',
@@ -35,7 +35,7 @@ const routes: Routes = [
 			import('./modules/width/width.module').then(m => m.WidthModule),
 	},
 
-	{path: '**', redirectTo: 'tool-width-page'},
+	{ path: '**', redirectTo: 'tool-width-page' },
 ];
 
 @NgModule({

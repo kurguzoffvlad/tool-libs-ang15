@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import {DomRoutingModule} from './dom-routing.module';
-import {DomComponent} from './dom.component';
+import { DomRoutingModule } from './dom-routing.module';
+import { DomComponent } from './dom.component';
 
 
 @NgModule({

@@ -1,7 +1,7 @@
-import {Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 // import {ToolScreenService} from "tool-screen-ang15";
-import {ToolScreenService} from '../../../../../tool-screen-ang15/src/lib/services/tool-screen.service';
+import { ToolScreenService } from '../../../../../tool-screen-ang15/src/lib/services/tool-screen.service';
 
 @Component({
 	selector: 'app-screen',
@@ -16,7 +16,7 @@ export class ScreenComponent implements OnInit {
 	}
 
 	public shrink(): void {
-		this.screen.setDevices({phoneMaxSize: 800});
+		this.screen.setDevices({ phoneMaxSize: 800 });
 	}
 
 	public refresh(): void {

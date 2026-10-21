@@ -1,16 +1,38 @@
-# Editor configuration, see https://editorconfig.org
+# Конфигурация редактора, см. https://editorconfig.org
+# Этот файл читают WebStorm, VS Code, Sublime, Vim и др. — правило отступов
+# применяется ко всему проекту автоматически.
+
+# Корень проекта: EditorConfig не ищет файлы .editorconfig выше этой папки.
 root = true
 
+# ---------- Базовые правила для всех файлов ----------
 [*]
+# Кодировка файлов
 charset = utf-8
+
+# Отступы — табами (визуально отображаются как "прочерки" при включённом
+# Show indent guides в WebStorm: Settings → Editor → General → Appearance)
 indent_style = tab
+
+# Ширина одного уровня отступа (и таба) в колонках
 indent_size = 4
+
+# Файл должен заканчиваться переводом строки
 insert_final_newline = true
+
+# Удалять пробелы в конце строк при сохранении
 trim_trailing_whitespace = true
 
+# ---------- TypeScript ----------
 [*.ts]
+# Единый стиль кавычек — одинарные
 quote_type = single
 
+# ---------- Markdown ----------
 [*.md]
+# Не ограничивать длину строки (переносы делает сам редактор / рендерер)
 max_line_length = off
+
+# В Markdown два пробела в конце строки = жёсткий перенос <br>,
+# поэтому автоудаление отключено, чтобы не ломать разметку
 trim_trailing_whitespace = false

@@ -1,7 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {filter, map, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, map, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 interface LibOption {
 	value: string;
@@ -11,16 +11,16 @@ interface LibOption {
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss'],
+	styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent implements OnInit, OnDestroy {
 	libraries: LibOption[] = [
-		{value: 'tool-width-page', label: 'tool-width-page'},
-		{value: 'tool-config-to-lib', label: 'tool-config-to-lib'},
-		{value: 'tool-dom', label: 'tool-dom'},
-		{value: 'tool-exchange', label: 'tool-exchange'},
-		{value: 'tool-page', label: 'tool-page'},
-		{value: 'tool-screen', label: 'tool-screen'},
+		{ value: 'tool-width-page', label: 'tool-width-page' },
+		{ value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
+		{ value: 'tool-dom', label: 'tool-dom' },
+		{ value: 'tool-exchange', label: 'tool-exchange' },
+		{ value: 'tool-page', label: 'tool-page' },
+		{ value: 'tool-screen', label: 'tool-screen' },
 	];
 
 	selectedLib = 'tool-width-page';
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	onLibChange(value: string): void {
 		this.selectedLib = value;
-		this.router.navigate([`/${value}`]);
+		this.router.navigate([ `/${value}` ]);
 	}
 
 	ngOnDestroy(): void {

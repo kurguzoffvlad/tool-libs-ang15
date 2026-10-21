@@ -1,11 +1,11 @@
 // modules/screen/screen-routing.module.ts
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import {ScreenComponent} from "./screen.component";
+import { ScreenComponent } from "./screen.component";
 
 const routes: Routes = [
-	{path: '', component: ScreenComponent},
+	{ path: '', component: ScreenComponent },
 ];
 
 @NgModule({

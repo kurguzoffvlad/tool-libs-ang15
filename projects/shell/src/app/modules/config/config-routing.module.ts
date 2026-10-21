@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-import {ConfigComponent} from "./config.component";
+import { ConfigComponent } from "./config.component";
 
 const routes: Routes = [
-	{path: '', component: ConfigComponent},
+	{ path: '', component: ConfigComponent },
 ];
 
 @NgModule({

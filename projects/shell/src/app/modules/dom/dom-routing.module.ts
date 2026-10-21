@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {DomComponent} from "./dom.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DomComponent } from "./dom.component";
 
 
 const routes: Routes = [
-	{path: '', component: DomComponent},
+	{ path: '', component: DomComponent },
 ];
 
 @NgModule({

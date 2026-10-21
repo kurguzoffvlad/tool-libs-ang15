@@ -1,7 +1,7 @@
-import {Component, ElementRef, inject, ViewChild} from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 
-import {green} from 'tool-log';
-import {DomToolsService} from "tool-dom-ang15";
+import { green } from 'tool-log';
+import { DomToolsService } from "tool-dom-ang15";
 
 
 @Component({
@@ -12,13 +12,13 @@ import {DomToolsService} from "tool-dom-ang15";
 export class DomComponent {
 
 	/** Ссылка на контейнер-песочницу (корень для addClassMarginPadding) */
-	@ViewChild('sandbox', {static: true}) sandboxRef!: ElementRef<HTMLElement>;
+	@ViewChild('sandbox', { static: true }) sandboxRef!: ElementRef<HTMLElement>;
 
 	/** Ссылка на целевой элемент для манипуляций классами/стилями */
-	@ViewChild('target', {static: true}) targetRef!: ElementRef<HTMLElement>;
+	@ViewChild('target', { static: true }) targetRef!: ElementRef<HTMLElement>;
 
 	/** Ссылка на контейнер для динамически создаваемых элементов */
-	@ViewChild('dynamicHost', {static: true}) dynamicHostRef!: ElementRef<HTMLElement>;
+	@ViewChild('dynamicHost', { static: true }) dynamicHostRef!: ElementRef<HTMLElement>;
 
 	/** Лог операций */
 	public logHtml: string[] = [];
@@ -286,7 +286,7 @@ export class DomComponent {
 		if (this.logHtml.length > 200) {
 			this.logHtml.length = 200;
 		}
-		// eslint-disable-next-line no-console
+		 
 		console.log(message);
 	}
 }

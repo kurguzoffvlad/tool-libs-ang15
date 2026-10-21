@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {ToolConfigToLibAng15Service} from "tool-config-to-lib-ang15";
-import {isLogLocalhost, red} from 'tool-log';
+import { Component } from '@angular/core';
+import { ToolConfigToLibAng15Service } from "tool-config-to-lib-ang15";
+import { isLogLocalhost, red } from 'tool-log';
 
 @Component({
 	selector: 'app-config',
