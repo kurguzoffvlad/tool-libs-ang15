@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-exchange',
-  templateUrl: './exchange.component.html',
-  styleUrls: ['./exchange.component.scss']
+    selector: 'app-exchange',
+    templateUrl: './exchange.component.html',
+    styleUrls: ['./exchange.component.scss']
 })
 export class ExchangeComponent {
 

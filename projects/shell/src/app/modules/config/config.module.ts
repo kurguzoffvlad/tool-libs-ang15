@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { ConfigRoutingModule } from './config-routing.module';
-import { ConfigComponent } from './config.component';
+import {ConfigRoutingModule} from './config-routing.module';
+import {ConfigComponent} from './config.component';
 
 
 @NgModule({
-  declarations: [
-    ConfigComponent
-  ],
-  imports: [
-    CommonModule,
-    ConfigRoutingModule
-  ]
+    declarations: [
+        ConfigComponent
+    ],
+    imports: [
+        CommonModule,
+        ConfigRoutingModule
+    ]
 })
-export class ConfigModule { }
+export class ConfigModule {
+}
