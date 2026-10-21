@@ -4,10 +4,11 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 
-import {provideToolScreenConfig} from 'tool-screen-ang15';
 import {ToolConfigToLibAng15Module} from 'tool-config-to-lib-ang15';
-
 import {configFromApp} from './modules/config/tool-config-to-lib.config';
+
+import {provideToolScreenConfig} from 'tool-screen-ang15';
+
 import {AppComponent} from './app.component';
 
 @NgModule({
@@ -23,5 +24,6 @@ import {AppComponent} from './app.component';
     providers: [ provideToolScreenConfig()],
     bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
