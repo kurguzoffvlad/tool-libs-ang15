@@ -29,7 +29,8 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private lib: ToolConfigToLibAng15Service) {}
 
     ngOnInit(): void {
-        this.router.events.pipe(
+        this.router.events
+        .pipe(
             filter((e): e is NavigationEnd => e instanceof NavigationEnd),
             map(e => e.urlAfterRedirects.split('/')[1] || ''),
             takeUntil(this.destroy$),
@@ -38,13 +39,13 @@ export class AppComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
-        this.destroy$.next();
-        this.destroy$.complete();
-    }
-
     onLibChange(value: string): void {
         this.selectedLib = value;
         this.router.navigate([`/${value}`]);
+    }
+
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }
