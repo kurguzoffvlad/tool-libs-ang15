@@ -4,7 +4,6 @@ import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { ToolConfigToLibAng15Service } from 'tool-config-to-lib-ang15';
-import { isLogLocalhost, red } from 'tool-log';
 
 interface LibOption { value: string; label: string; }
 
@@ -30,10 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
     constructor(private router: Router, private lib: ToolConfigToLibAng15Service) {}
 
     ngOnInit(): void {
-        const str = this.lib.doSomething();
-        console.log('str', str);
-        red('isLogLocalhost ===', isLogLocalhost);
-
         this.router.events.pipe(
             filter((e): e is NavigationEnd => e instanceof NavigationEnd),
             map(e => e.urlAfterRedirects.split('/')[1] || ''),
