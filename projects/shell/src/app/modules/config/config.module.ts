@@ -6,13 +6,13 @@ import {ConfigComponent} from './config.component';
 
 
 @NgModule({
-    declarations: [
-        ConfigComponent
-    ],
-    imports: [
-        CommonModule,
-        ConfigRoutingModule
-    ]
+	declarations: [
+		ConfigComponent
+	],
+	imports: [
+		CommonModule,
+		ConfigRoutingModule
+	]
 })
 export class ConfigModule {
 }

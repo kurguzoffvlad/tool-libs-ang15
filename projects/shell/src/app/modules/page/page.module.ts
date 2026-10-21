@@ -6,13 +6,13 @@ import {PageComponent} from './page.component';
 
 
 @NgModule({
-    declarations: [
-        PageComponent
-    ],
-    imports: [
-        CommonModule,
-        PageRoutingModule
-    ]
+	declarations: [
+		PageComponent
+	],
+	imports: [
+		CommonModule,
+		PageRoutingModule
+	]
 })
 export class PageModule {
 }

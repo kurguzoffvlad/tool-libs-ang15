@@ -4,12 +4,12 @@ import {DomComponent} from "./dom.component";
 
 
 const routes: Routes = [
-    {path: '', component: DomComponent},
+	{path: '', component: DomComponent},
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class DomRoutingModule {
 }

@@ -3,12 +3,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {WidthComponent} from "./width.component";
 
 const routes: Routes = [
-    {path: '', component: WidthComponent},
+	{path: '', component: WidthComponent},
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class WidthRoutingModule {
 }

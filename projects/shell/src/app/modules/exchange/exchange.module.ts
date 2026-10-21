@@ -6,13 +6,13 @@ import {ExchangeComponent} from './exchange.component';
 
 
 @NgModule({
-    declarations: [
-        ExchangeComponent
-    ],
-    imports: [
-        CommonModule,
-        ExchangeRoutingModule
-    ]
+	declarations: [
+		ExchangeComponent
+	],
+	imports: [
+		CommonModule,
+		ExchangeRoutingModule
+	]
 })
 export class ExchangeModule {
 }

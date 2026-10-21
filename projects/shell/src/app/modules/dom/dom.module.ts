@@ -6,13 +6,13 @@ import {DomComponent} from './dom.component';
 
 
 @NgModule({
-    declarations: [
-        DomComponent
-    ],
-    imports: [
-        CommonModule,
-        DomRoutingModule
-    ]
+	declarations: [
+		DomComponent
+	],
+	imports: [
+		CommonModule,
+		DomRoutingModule
+	]
 })
 export class DomModule {
 }

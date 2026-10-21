@@ -12,26 +12,27 @@ import {provideToolScreenConfig} from 'tool-screen-ang15';
 import {AppComponent} from './app.component';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        ToolConfigToLibAng15Module.forRoot(configFromApp),
-    ],
-    providers: [provideToolScreenConfig(
-        { devices:
-                {
-                    phoneMaxSize: 933,
-                    tabletMaxSize: 1366,
-                    desktopMaxSize: 1500
-                },
-            resizeDebounceMs: 100
-        }
-        )], // или - providers: [ provideToolScreenConfig()],
-    bootstrap: [AppComponent]
+	declarations: [
+		AppComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		AppRoutingModule,
+		ToolConfigToLibAng15Module.forRoot(configFromApp),
+	],
+	providers: [provideToolScreenConfig(
+		{
+			devices:
+				{
+					phoneMaxSize: 933,
+					tabletMaxSize: 1366,
+					desktopMaxSize: 1500
+				},
+			resizeDebounceMs: 100
+		}
+	)], // или - providers: [ provideToolScreenConfig()],
+	bootstrap: [AppComponent]
 })
 
 export class AppModule {

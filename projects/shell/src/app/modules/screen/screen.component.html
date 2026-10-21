@@ -1,22 +1,22 @@
 <ng-container *ngIf="screen.state$ | async as state">
-    <div class="screen-box"
-         [class]="'screen-box type-' + (state.screen.type ?? 'unknown')
+	<div class="screen-box"
+		 [class]="'screen-box type-' + (state.screen.type ?? 'unknown')
                  + ' orientation-' + (state.screen.orientation ?? 'unknown')">
-        <h3>tool-screen</h3>
+		<h3>tool-screen</h3>
 
-        <p>type: {{ state.screen.type }}</p>
-        <p>orientation: {{ state.screen.orientation }}</p>
-        <p>innerWidth: {{ state.screen.options.proportions.innerWidth }}</p>
+		<p>type: {{ state.screen.type }}</p>
+		<p>orientation: {{ state.screen.orientation }}</p>
+		<p>innerWidth: {{ state.screen.options.proportions.innerWidth }}</p>
 
-        <pre>{{ state | json }}</pre>
+		<pre>{{ state | json }}</pre>
 
-        <button (click)="shrink()">phoneMaxSize = 800 (phone теряется)</button>
-        <button (click)="refresh()">refresh()</button>
+		<button (click)="shrink()">phoneMaxSize = 800 (phone теряется)</button>
+		<button (click)="refresh()">refresh()</button>
 
-        <p>maxSize: {{ (screen.state$ | async)?.screen?.options?.maxSize }}</p>
-        <p>innerWidth: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerWidth }}</p>
-        <p>innerHeight: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerHeight }}</p>
-    </div>
+		<p>maxSize: {{ (screen.state$ | async)?.screen?.options?.maxSize }}</p>
+		<p>innerWidth: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerWidth }}</p>
+		<p>innerHeight: {{ (screen.state$ | async)?.screen?.options?.proportions?.innerHeight }}</p>
+	</div>
 </ng-container>
 
 

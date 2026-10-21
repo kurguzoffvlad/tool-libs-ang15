@@ -6,13 +6,13 @@ import {WidthComponent} from './width.component';
 
 
 @NgModule({
-    declarations: [
-        WidthComponent
-    ],
-    imports: [
-        CommonModule,
-        WidthRoutingModule
-    ]
+	declarations: [
+		WidthComponent
+	],
+	imports: [
+		CommonModule,
+		WidthRoutingModule
+	]
 })
 export class WidthModule {
 }
