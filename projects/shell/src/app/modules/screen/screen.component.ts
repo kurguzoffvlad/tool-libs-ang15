@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 
 // import {ToolScreenService} from "tool-screen-ang15";
 import {ToolScreenService} from '../../../../../tool-screen-ang15/src/lib/services/tool-screen.service';
@@ -8,8 +8,12 @@ import {ToolScreenService} from '../../../../../tool-screen-ang15/src/lib/servic
     templateUrl: './screen.component.html',
     styleUrls: ['./screen.component.scss']
 })
-export class ScreenComponent {
+export class ScreenComponent implements OnInit {
     public readonly screen = inject(ToolScreenService);
+
+    public ngOnInit(): void {
+        console.log('[Screen]', this.screen.state);
+    }
 
     public shrink(): void {
         this.screen.setDevices({phoneMaxSize: 800});
