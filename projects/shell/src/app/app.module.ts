@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 
-import {ToolScreenAng15Module} from 'tool-screen-ang15';
+import {provideToolScreenConfig} from 'tool-screen-ang15';
 import {ToolConfigToLibAng15Module} from 'tool-config-to-lib-ang15';
 
 import {configFromApp} from './modules/config/tool-config-to-lib.config';
@@ -19,9 +19,8 @@ import {AppComponent} from './app.component';
         FormsModule,
         AppRoutingModule,
         ToolConfigToLibAng15Module.forRoot(configFromApp),
-        ToolScreenAng15Module.forRoot()
     ],
-    providers: [],
+    providers: [ provideToolScreenConfig()],
     bootstrap: [AppComponent]
 })
 export class AppModule {
