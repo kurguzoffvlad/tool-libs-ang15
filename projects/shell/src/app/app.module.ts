@@ -21,7 +21,16 @@ import {AppComponent} from './app.component';
         AppRoutingModule,
         ToolConfigToLibAng15Module.forRoot(configFromApp),
     ],
-    providers: [ provideToolScreenConfig()],
+    providers: [provideToolScreenConfig(
+        { devices:
+                {
+                    phoneMaxSize: 933,
+                    tabletMaxSize: 1366,
+                    desktopMaxSize: 1500
+                },
+            resizeDebounceMs: 100
+        }
+        )], // или - providers: [ provideToolScreenConfig()],
     bootstrap: [AppComponent]
 })
 
