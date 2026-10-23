@@ -18,6 +18,6 @@ export class ConfigComponent {
 		red('isLogLocalhost ===', isLogLocalhost);
 
 		const result = this.lib.cfg.add(6, 6);
-		green(result);
+		green('add', result);
 	}
 }
