@@ -1,24 +1,24 @@
-// type задаёт базовый цвет, orientation — градиент/оттенок
-.screen-box.type-phone.orientation-horizontal {
-	background: linear-gradient(135deg, #ffe0b2, #ffcc80);
-}
+// type задаёт hue, orientation — направление + насыщенность + контраст
+// horizontal: светлый старт → насыщенный конец по диагонали (↔ ощущение)
+// vertical:   тёмный старт → светлый конец снизу вверх (↕ ощущение)
 
+.screen-box.type-phone.orientation-horizontal {
+	background: linear-gradient(135deg, #fff3e0 0%, #ffb74d 100%);
+}
 .screen-box.type-phone.orientation-vertical {
-	background: linear-gradient(180deg, #ffe0b2, #ffb74d);
+	background: linear-gradient(180deg, #e65100 0%, #ffe0b2 100%);
 }
 
 .screen-box.type-tablet.orientation-horizontal {
-	background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+	background: linear-gradient(135deg, #e8f5e9 0%, #66bb6a 100%);
 }
-
 .screen-box.type-tablet.orientation-vertical {
-	background: linear-gradient(180deg, #c8e6c9, #81c784);
+	background: linear-gradient(180deg, #1b5e20 0%, #c8e6c9 100%);
 }
 
 .screen-box.type-desktop.orientation-horizontal {
-	background: linear-gradient(135deg, #bbdefb, #90caf9);
+	background: linear-gradient(135deg, #e3f2fd 0%, #42a5f5 100%);
 }
-
 .screen-box.type-desktop.orientation-vertical {
-	background: linear-gradient(180deg, #bbdefb, #64b5f6);
+	background: linear-gradient(180deg, #0d47a1 0%, #bbdefb 100%);
 }
