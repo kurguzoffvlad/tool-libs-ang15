@@ -15,7 +15,7 @@ export class ConfigComponent {
 		console.log('apiUrl', this.apiUrl);
 
 		this.lib.cfg.log('Сообщение из приложения через библиотеку');
-		red('isLogLocalhost ===', isLogLocalhost);
+		green('isLogLocalhost ===', isLogLocalhost);
 
 		const result = this.lib.cfg.add(6, 6);
 		green('add', result);
