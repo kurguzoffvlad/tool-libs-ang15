@@ -15,6 +15,7 @@
 		"PUBLISH:screen": "npm --prefix projects/tool-screen-ang15 version patch --no-git-tag-version && ng build tool-screen-ang15 && npm publish ./dist/tool-screen-ang15",
 		"PUBLISH:width": "npm --prefix projects/tool-width-page-ang15 version patch --no-git-tag-version && ng build tool-width-page-ang15 && npm publish ./dist/tool-width-page-ang15",
 		"PUBLISH:ALL": "npm run PUBLISH:config && npm run PUBLISH:dom && npm run PUBLISH:exchange && npm run PUBLISH:page && npm run PUBLISH:screen && npm run PUBLISH:width",
+		"evo": "node dist/tool-page-ang15/tools/evo-generator/index.js",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"lint:check": "eslint . --max-warnings=0"

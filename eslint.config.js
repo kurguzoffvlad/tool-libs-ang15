@@ -2,20 +2,22 @@
 // eslint.config.js
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import globals from 'globals';
 
 export default [
-	// 1. Игнорируем сборку и зависимости
-	{
-		ignores: ['dist/**', 'node_modules/**', '.angular/**'],
-	},
+	{ ignores: ['dist/**', 'node_modules/**', '.angular/**'] },
 
-	// 2. Базовые JS-правила
 	js.configs.recommended,
-
-	// 3. TypeScript-правила + TS-парсер
 	...tseslint.configs.recommended,
 
-	// 4. Ваши правила
+	// Node-скрипты (tools/**)
+	{
+		files: ['tools/**/*.{js,cjs,mjs}'],
+		languageOptions: {
+			globals: { ...globals.node },
+		},
+	},
+
 	{
 		files: ['**/*.{ts,js,tsx,jsx}'],
 		rules: {
