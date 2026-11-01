@@ -1,0 +1,28 @@
+<ng-container *ngIf="screen.state$ | async as info">
+	<ng-container *ngIf="info.screen.type === ScreenEnums.Phone">
+		<exch-page-detail-phone
+			[filters]="filters"
+			[options]="options"
+			[screenInfo]="info"
+			[viewDataPage]="viewDataPage"
+		></exch-page-detail-phone>
+	</ng-container>
+
+	<ng-container *ngIf="info.screen.type === ScreenEnums.Tablet">
+		<exch-page-detail-tablet
+			[filters]="filters"
+			[options]="options"
+			[screenInfo]="info"
+			[viewDataPage]="viewDataPage"
+		></exch-page-detail-tablet>
+	</ng-container>
+
+	<ng-container *ngIf="info.screen.type === ScreenEnums.Desktop">
+		<exch-page-detail-desktop
+			[filters]="filters"
+			[options]="options"
+			[screenInfo]="info"
+			[viewDataPage]="viewDataPage"
+		></exch-page-detail-desktop>
+	</ng-container>
+</ng-container>

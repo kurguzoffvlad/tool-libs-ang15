@@ -10,19 +10,28 @@ export default [
 	js.configs.recommended,
 	...tseslint.configs.recommended,
 
-	// Node-скрипты (tools/**)
-	{
-		files: ['tools/**/*.{js,cjs,mjs}'],
-		languageOptions: {
-			globals: { ...globals.node },
-		},
-	},
-
+	// Настройки для всех файлов
 	{
 		files: ['**/*.{ts,js,tsx,jsx}'],
 		rules: {
 			'object-curly-spacing': ['error', 'always'],
 			'@typescript-eslint/no-explicit-any': 'off',
+		},
+	},
+
+	// Настройки ТОЛЬКО для Node-скриптов (переопределяют общие)
+	{
+		files: ['**/tools/**/*.{js,cjs,mjs}'], // Ищем папку tools на любой глубине
+		languageOptions: {
+			globals: {
+				...globals.node, // Разрешает process, __dirname, require
+				console: 'readonly', // Явно разрешаем console
+			},
+			sourceType: 'commonjs', // Важно для require
+		},
+		rules: {
+			'@typescript-eslint/no-require-imports': 'off',
+			'no-undef': 'off', // Разрешает process, __dirname, require
 		},
 	},
 ];

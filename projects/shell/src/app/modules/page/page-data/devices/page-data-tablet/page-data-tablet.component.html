@@ -1,0 +1,19 @@
+<div [ngClass]="{
+        'phone': screenInfo.screen.type === ScreenEnums.Phone,
+        'tablet': screenInfo.screen.type === ScreenEnums.Tablet,
+        'desktop': screenInfo.screen.type === ScreenEnums.Desktop
+    }"
+	 class="device"
+>
+	<div [ngClass]="{
+        'vertical': screenInfo.screen.orientation === OrientationScreenEnum.Vertical,
+        'horizontal': screenInfo.screen.orientation === OrientationScreenEnum.Horizontal
+    }">
+		<h1>AI :)</h1>
+		<p>Смартфон - {{ screenInfo.devices.phoneMaxSize }}</p>
+		<p>Планшет - {{ screenInfo.devices.tabletMaxSize }}</p>
+		<p>Монитор - {{ screenInfo.devices.desktopMaxSize }}</p>
+		<p>ScreenWidth - {{ screenInfo.screen.options.proportions.width }}</p>
+		<p>ScreenInnerWidth - {{ screenInfo.screen.options.proportions.innerWidth }}</p>
+	</div>
+</div>
