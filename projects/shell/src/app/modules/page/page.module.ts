@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+
 import { PageRoutingModule } from './page-routing.module';
 import { PageComponent } from './page.component';
 import { PageExchangeComponent } from './page-exchange/page-exchange.component';
@@ -31,7 +34,9 @@ import { PageDataDesktopComponent } from './page-data/devices/page-data-desktop/
 	],
 	imports: [
 		CommonModule,
-		PageRoutingModule
+		FormsModule,
+		PageRoutingModule,
+		HttpClientModule
 	]
 })
 export class PageModule {

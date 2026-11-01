@@ -1,4 +1,11 @@
 <ng-container *ngIf="screen.state$ | async as info">
+	<!-- Плашка с демонстрационным свойством, которое меняет PageExchange -->
+	<div class="exchange-badge">
+		<h4>PageDetailComponent → exchangeMessage</h4>
+		<p class="highlight-message"><strong>{{ exchangeMessage }}</strong></p>
+		<p class="counter">RunAction-вызовов: {{ exchangeActionCallCount }}</p>
+	</div>
+
 	<ng-container *ngIf="info.screen.type === ScreenEnums.Phone">
 		<exch-page-detail-phone
 			[filters]="filters"

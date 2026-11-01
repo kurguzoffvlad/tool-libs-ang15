@@ -10,6 +10,7 @@ import { configFromApp } from './modules/config/tool-config-to-lib.config';
 import { provideToolScreenConfig } from 'tool-screen-ang15';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	declarations: [
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
 	imports: [
 		BrowserModule,
 		FormsModule,
+		HttpClientModule,
 		AppRoutingModule,
 		ToolConfigToLibAng15Module.forRoot(configFromApp),
 	],

@@ -1,28 +1,52 @@
 <ng-container *ngIf="screen.state$ | async as info">
-	<ng-container *ngIf="info.screen.type === ScreenEnums.Phone">
-		<exch-page-data-phone
-			[filters]="filters"
-			[options]="options"
-			[screenInfo]="info"
-			[viewDataPage]="viewDataPage"
-		></exch-page-data-phone>
-	</ng-container>
+	<div class="page-data-container">
 
-	<ng-container *ngIf="info.screen.type === ScreenEnums.Tablet">
-		<exch-page-data-tablet
-			[filters]="filters"
-			[options]="options"
-			[screenInfo]="info"
-			[viewDataPage]="viewDataPage"
-		></exch-page-data-tablet>
-	</ng-container>
+		<!-- Заголовок и кнопка обновления -->
+		<div class="controls">
+			<h3>Page Data (данные с сервера)</h3>
+			<button type="button" (click)="loadData()" [disabled]="isLoading">
+				{{ isLoading ? 'Загрузка...' : 'Обновить данные' }}
+			</button>
+		</div>
 
-	<ng-container *ngIf="info.screen.type === ScreenEnums.Desktop">
-		<exch-page-data-desktop
-			[filters]="filters"
-			[options]="options"
-			[screenInfo]="info"
-			[viewDataPage]="viewDataPage"
-		></exch-page-data-desktop>
-	</ng-container>
+		<!-- Ошибка -->
+		<div class="error" *ngIf="errorMessage">
+			{{ errorMessage }}
+		</div>
+
+		<!-- Загрузка -->
+		<div class="loading" *ngIf="isLoading">
+			Идёт загрузка данных...
+		</div>
+
+		<!-- Данные -->
+		<div class="data-list" *ngIf="!isLoading && dataItems.length > 0">
+			<p>Всего записей: {{ dataItems.length }}</p>
+			<ul>
+				<li *ngFor="let item of dataItems">
+					<strong>{{ item.id }}. {{ item.title }}</strong>
+					<p>{{ item.bodyPreview }}</p>
+					<small>User ID: {{ item.userId }}</small>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Пустой результат -->
+		<div class="empty" *ngIf="!isLoading && !errorMessage && !dataItems.length">
+			Данные не найдены
+		</div>
+
+		<!-- Адаптивная вёрстка -->
+		<div class="device-view">
+			<ng-container *ngIf="info.screen.type === ScreenEnums.Phone">
+				<exch-page-data-phone [filters]="filters" [options]="options" [screenInfo]="info" [viewDataPage]="viewDataPage"></exch-page-data-phone>
+			</ng-container>
+			<ng-container *ngIf="info.screen.type === ScreenEnums.Tablet">
+				<exch-page-data-tablet [filters]="filters" [options]="options" [screenInfo]="info" [viewDataPage]="viewDataPage"></exch-page-data-tablet>
+			</ng-container>
+			<ng-container *ngIf="info.screen.type === ScreenEnums.Desktop">
+				<exch-page-data-desktop [filters]="filters" [options]="options" [screenInfo]="info" [viewDataPage]="viewDataPage"></exch-page-data-desktop>
+			</ng-container>
+		</div>
+	</div>
 </ng-container>

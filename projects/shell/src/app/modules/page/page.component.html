@@ -1,1 +1,89 @@
-<p>page works!</p>
+<div class="page-shell">
+
+	<!-- Заголовок и переключатель вкладок -->
+	<header class="page-header">
+		<h1>Page works!</h1>
+		<nav class="tabs">
+			<button
+				type="button"
+				class="tab"
+				*ngFor="let tab of tabs"
+				[class.active]="activeTab === tab.id"
+				(click)="selectTab(tab.id)"
+				[title]="tab.hint"
+			>
+				{{ tab.label }}
+			</button>
+		</nav>
+	</header>
+
+	<!-- Информационная панель -->
+	<section class="screen-info" *ngIf="screen.state$ | async as info">
+		<span class="badge" [ngClass]="{
+			'is-phone':   info.screen.type === ScreenEnums.Phone,
+			'is-tablet':  info.screen.type === ScreenEnums.Tablet,
+			'is-desktop': info.screen.type === ScreenEnums.Desktop
+		}">
+			Устройство:
+			<ng-container [ngSwitch]="info.screen.type">
+				<span *ngSwitchCase="ScreenEnums.Phone">Phone</span>
+				<span *ngSwitchCase="ScreenEnums.Tablet">Tablet</span>
+				<span *ngSwitchCase="ScreenEnums.Desktop">Desktop</span>
+			</ng-container>
+		</span>
+
+		<span class="badge is-orientation">
+			Ориентация: {{ info.screen.orientation }}
+		</span>
+
+		<span class="badge is-size">
+			{{ info.screen.options.proportions.innerWidth }} × {{ info.screen.options.proportions.innerHeight }}
+		</span>
+	</section>
+
+	<!-- Контент вкладок -->
+	<main class="page-content">
+
+		<!-- 1. PageExchange -->
+		<section class="tab-panel" [hidden]="activeTab !== 'exchange'">
+			<p class="panel-hint">
+				Демонстрация <code>ExchangeSubscribeComponent</code> —
+				обмен сообщениями между компонентами и сервисами
+				через <code>ExchangeLighthouse</code>.
+			</p>
+			<div class="page-host">
+				<exch-page-exchange [viewDataFields]="viewDataPage"></exch-page-exchange>
+			</div>
+		</section>
+
+		<!-- 2. PageDetail -->
+		<section class="tab-panel" [hidden]="activeTab !== 'detail'">
+			<p class="panel-hint">
+				Поменяйте размер окна / ориентацию —
+				вёрстка переключится между phone / tablet / desktop.
+			</p>
+			<div class="page-host">
+				<exch-page-detail
+					[filters]="filters"
+					[options]="options"
+					[viewDataPage]="viewDataPage"
+				></exch-page-detail>
+			</div>
+		</section>
+
+		<!-- 3. PageData -->
+		<section class="tab-panel" [hidden]="activeTab !== 'data'">
+			<p class="panel-hint">
+				Демонстрация пайплайна данных (запрос к серверу → парсинг → подготовка для HTML).
+			</p>
+			<div class="page-host">
+				<exch-page-data
+					[filters]="filters"
+					[options]="options"
+					[viewDataPage]="viewDataPage"
+				></exch-page-data>
+			</div>
+		</section>
+
+	</main>
+</div>

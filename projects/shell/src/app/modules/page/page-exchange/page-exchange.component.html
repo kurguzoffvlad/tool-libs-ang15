@@ -1,4 +1,35 @@
 <div class="page-exchange-container">
 	<p>page-exchange works!</p>
-	<p>ExchangeSubscribeComponent - communication-center-for-components-and-services!!!</p>
+	<p>ExchangeSubscribeComponent — communication-center-for-components-and-services!!!</p>
+
+	<section class="exchange-demo">
+		<h3>Изменение своего свойства</h3>
+		<p class="exchange-value">
+			Текущее значение <code>exchChangeText</code>:
+			<strong>{{ exchChangeText }}</strong>
+		</p>
+		<div class="exchange-actions">
+			<button type="button" (click)="sendChangeProperty('Привет')">Изменить на "Привет"</button>
+			<button type="button" (click)="sendChangeProperty('Мир')">Изменить на "Мир"</button>
+		</div>
+	</section>
+
+	<section class="exchange-demo">
+		<h3>Взаимодействие с PageDetail</h3>
+		<label class="field">
+			<span>Сообщение для PageDetail:</span>
+			<input [(ngModel)]="messageForDetail" placeholder="Текст для PageDetail" />
+		</label>
+		<div class="exchange-actions">
+			<button type="button" (click)="sendToPageDetail()">Изменить свойство в PageDetail</button>
+			<button type="button" (click)="callDetailAction()">Вызвать метод в PageDetail</button>
+		</div>
+	</section>
+
+	<section class="exchange-log" *ngIf="receivedLog.length">
+		<h4>Лог действий:</h4>
+		<ul>
+			<li *ngFor="let line of receivedLog">{{ line }}</li>
+		</ul>
+	</section>
 </div>
