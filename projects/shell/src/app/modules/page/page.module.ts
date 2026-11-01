@@ -16,8 +16,7 @@ import { PageDataTabletComponent } from './page-data/devices/page-data-tablet/pa
 import { PageDataDesktopComponent } from './page-data/devices/page-data-desktop/page-data-desktop.component';
 
 @NgModule({
-	declarations: [
-		PageComponent,
+	declarations: [PageComponent,
 		PageExchangeComponent,
 		PageDetailComponent,
 		PageDetailCommonDevicesComponent,
