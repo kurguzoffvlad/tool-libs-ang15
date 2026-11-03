@@ -59,7 +59,6 @@ export class PageDataComponent extends ExchangeSubscribeComponent implements OnI
 
 		} catch (error) {
 			console.error('Ошибка получения данных:', error);
-
 			this.errorMessage = 'Не удалось загрузить данные с сервера';
 
 			this.dataItems = [];
