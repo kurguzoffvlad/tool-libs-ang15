@@ -11,7 +11,7 @@ export interface IPageDataRequestConfig {
 export class PageData1RequestService {
 	public start(): IPageDataRequestConfig {
 		return {
-			url: 'assets/mock-posts.json',
+			url: 'https://jsonplaceholder.typicode.com/posts',  // с VPN - иначе - 'assets/mock-posts.json',
 			params: { _limit: 10 } // Ограничим до 10 записей для наглядности
 		};
 	}

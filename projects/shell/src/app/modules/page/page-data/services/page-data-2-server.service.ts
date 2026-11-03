@@ -12,6 +12,6 @@ export class PageData2ServerService {
 
 	public start(config: IPageDataRequestConfig): Observable<any> {
 		// Для локального файла params не нужны
-		return this.http.get<any>(config.url);
+		return this.http.get<any>(config.url, { params: config.params });
 	}
 }
