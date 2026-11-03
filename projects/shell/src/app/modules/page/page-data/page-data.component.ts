@@ -45,6 +45,7 @@ export class PageDataComponent extends ExchangeSubscribeComponent implements OnI
 
 	public async loadData(): Promise<void> {
 		this.isLoading = true;
+
 		this.errorMessage = null;
 
 		try {
