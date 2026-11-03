@@ -8,7 +8,7 @@ import { ScreenEnums, ToolScreenService } from 'tool-screen-ang15';
 import { PageData1RequestService } from './services/page-data-1-request.service';
 import { PageData2ServerService } from './services/page-data-2-server.service';
 import { PageData3ParsedService } from './services/page-data-3-parsed.service';
-import { PageData4FactoryService, IPageDataViewModel } from './services/page-data-4-factory.service';
+import { IPageDataViewModel, PageData4FactoryService } from './services/page-data-4-factory.service';
 
 @Component({
 	selector: 'exch-page-data',
@@ -54,9 +54,8 @@ export class PageDataComponent extends ExchangeSubscribeComponent implements OnI
 
 			const parsedResult = this.parsedService.start(serverResult);
 
-			const items = this.factoryService.start(parsedResult);
+			this.dataItems = this.factoryService.start(parsedResult);
 
-			this.dataItems = items;
 		} catch (error) {
 			console.error('Ошибка получения данных:', error);
 			this.errorMessage = 'Не удалось загрузить данные с сервера';
