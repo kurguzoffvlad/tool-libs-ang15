@@ -21,7 +21,10 @@ export default [
 
 	// Настройки ТОЛЬКО для Node-скриптов (переопределяют общие)
 	{
-		files: ['**/tools/**/*.{js,cjs,mjs}'], // Ищем папку tools на любой глубине
+		files: [
+			'**/tools/**/*.{js,cjs,mjs}', // Ищем папку tools на любой глубине
+			'**/tool-snippets-ws/**/*.js'
+		],
 		languageOptions: {
 			globals: {
 				...globals.node, // Разрешает process, __dirname, require

@@ -30,8 +30,7 @@ import { PageDataDesktopComponent } from './page-data/devices/page-data-desktop/
 		PageDataCommonDevicesComponent,
 		PageDataPhoneComponent,
 		PageDataTabletComponent,
-		PageDataDesktopComponent
-	],
+		PageDataDesktopComponent],
 	imports: [
 		CommonModule,
 		FormsModule,
