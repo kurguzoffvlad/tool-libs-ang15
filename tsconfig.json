@@ -34,7 +34,10 @@
 			],
 			"tool-screen-ang15": [
 				"projects/tool-screen-ang15/src/public-api.ts"
-			],
+      ],
+      "tool-snippets-ws": [
+        "dist/tool-snippets-ws"
+      ],
 			"tool-width-page-ang15": [
 				"projects/tool-width-page-ang15/src/public-api.ts"
 			]
