@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 
 // import {ToolScreenService} from "tool-screen-ang15";
 import { ToolScreenService } from '../../../../../tool-screen-ang15/src/lib/services/tool-screen.service';
@@ -8,15 +8,22 @@ import { ToolScreenService } from '../../../../../tool-screen-ang15/src/lib/serv
 	templateUrl: './screen.component.html',
 	styleUrls: ['./screen.component.scss']
 })
-export class ScreenComponent implements OnInit {
+class ScreenComponent implements OnInit {
 	public readonly screen = inject(ToolScreenService);
 
+	@ViewChild('rootTool', { read: ElementRef })
+	public set rootTool(ref: ElementRef<HTMLElement> | undefined) {
+		this.screen.setWrapperRef(ref ?? null);
+	}
+
 	public ngOnInit(): void {
-		console.log('[Screen]', this.screen.state);
 	}
 
 	public shrink(): void {
-		this.screen.setDevices({ phoneMaxSize: 800 });
+		this.screen.setDevices({
+			phoneMaxSize: 800,
+			desktopMaxSize: 2000
+		});
 	}
 
 	public refresh(): void {
@@ -25,3 +32,5 @@ export class ScreenComponent implements OnInit {
 
 	// destroy() НЕ вызываем — сервис root-scoped
 }
+
+export default ScreenComponent

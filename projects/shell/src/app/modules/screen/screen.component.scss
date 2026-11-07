@@ -2,6 +2,10 @@
 // horizontal: светлый старт → насыщенный конец по диагонали (↔ ощущение)
 // vertical:   тёмный старт → светлый конец снизу вверх (↕ ощущение)
 
+#root-tool-id {
+	width: var(--tool-page-width);
+}
+
 .screen-box.type-phone.orientation-horizontal {
 	background: linear-gradient(135deg, #fff3e0 0%, #ffb74d 100%);
 }

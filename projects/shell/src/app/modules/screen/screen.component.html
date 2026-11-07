@@ -1,5 +1,5 @@
 <ng-container *ngIf="screen.state$ | async as state">
-	<div class="screen-box"
+	<div #rootTool id="root-tool-id" class="screen-box"
 		 [class]="'screen-box type-' + (state.screen.type ?? 'unknown')
                  + ' orientation-' + (state.screen.orientation ?? 'unknown')">
 		<h3>tool-screen</h3>

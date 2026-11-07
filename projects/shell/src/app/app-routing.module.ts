@@ -29,11 +29,6 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/screen/screen.module').then(m => m.ScreenModule),
 	},
-	{
-		path: 'tool-width-page',
-		loadChildren: () =>
-			import('./modules/width/width.module').then(m => m.WidthModule),
-	},
 
 	{ path: '**', redirectTo: 'tool-width-page' },
 ];
