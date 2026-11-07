@@ -6,6 +6,8 @@
 	width: var(--tool-page-width);
 }
 
+.orientation-landscape{ display: none; }
+
 .screen-box.type-phone.orientation-horizontal {
 	background: linear-gradient(135deg, #fff3e0 0%, #ffb74d 100%);
 }
@@ -26,3 +28,10 @@
 .screen-box.type-desktop.orientation-vertical {
 	background: linear-gradient(180deg, #0d47a1 0%, #bbdefb 100%);
 }
+
+@media (orientation: landscape) and (max-height: 500px) {
+	/* только телефоны в горизонтали */
+	#root-tool-id { display: none; }
+	.orientation-landscape { display: block; }
+}
+
