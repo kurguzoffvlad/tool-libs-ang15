@@ -15,7 +15,6 @@ interface LibOption {
 })
 export class AppComponent implements OnInit, OnDestroy {
 	libraries: LibOption[] = [
-		{ value: 'tool-width-page', label: 'tool-width-page' },
 		{ value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
 		{ value: 'tool-dom', label: 'tool-dom' },
 		{ value: 'tool-exchange', label: 'tool-exchange' },
@@ -23,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-screen', label: 'tool-screen' },
 	];
 
-	selectedLib = 'tool-width-page';
+	selectedLib = 'tool-config-to-lib';
 
 	private destroy$ = new Subject<void>();
 
