@@ -23,7 +23,7 @@ export default [
 	{
 		files: [
 			'**/tools/**/*.{js,cjs,mjs}', // Ищем папку tools на любой глубине
-			'**/tool-snippets-ws/**/*.js'
+			'**/tool-snippets/**/*.js'
 		],
 		languageOptions: {
 			globals: {
