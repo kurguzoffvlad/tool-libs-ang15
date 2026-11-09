@@ -34,13 +34,13 @@
 			],
 			"tool-screen-ang15": [
 				"projects/tool-screen-ang15/src/public-api.ts"
-      ],
-      "tool-snippets": [
-        "dist/tool-snippets"
-      ],
-      "tool-utilities": [
-        "dist/tool-utilities"
-      ],
+			],
+			"tool-snippets": [
+				"dist/tool-snippets"
+			],
+			"tool-utilities": [
+				"projects/tool-utilities-ang15/src/public-api.ts"
+			],
 			"tool-width-page-ang15": [
 				"projects/tool-width-page-ang15/src/public-api.ts"
 			]
