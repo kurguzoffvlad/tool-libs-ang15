@@ -38,6 +38,9 @@
       "tool-snippets": [
         "dist/tool-snippets"
       ],
+      "tool-utilities": [
+        "dist/tool-utilities"
+      ],
 			"tool-width-page-ang15": [
 				"projects/tool-width-page-ang15/src/public-api.ts"
 			]
