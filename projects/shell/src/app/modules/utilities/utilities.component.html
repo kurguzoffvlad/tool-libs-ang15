@@ -1,1 +1,52 @@
-<p>utilities works!</p>
+<section class="tu-demo">
+	<h2>AwaitTryCatchService — демо</h2>
+
+	<div class="tu-demo__actions">
+		<button type="button" (click)="runFetchOk()" [disabled]="loadingOk">
+			{{ loadingOk ? 'Загрузка…' : 'fetch 200 (успех)' }}
+		</button>
+		<button type="button" (click)="runFetch404()" [disabled]="loadingFail">
+			{{ loadingFail ? 'Загрузка…' : 'fetch 404 (ошибка)' }}
+		</button>
+	</div>
+
+	<div class="tu-demo__col">
+		<h3>
+			Успешные ({{ resultsOk.length }})
+			<button type="button" (click)="clearOk()" *ngIf="resultsOk.length">очистить</button>
+		</h3>
+
+		<div class="tu-demo__pending" *ngIf="loadingOk">⏳ Загрузка…</div>
+
+		<div class="tu-demo__row tu-demo__row--ok" *ngFor="let r of resultsOk">
+			<strong>{{ r.label }}</strong>
+			<div class="tu-demo__meta">
+				<span><b>from:</b> {{ r.from }}</span>
+				<span *ngIf="r.value === false"><b>errorMessage:</b> {{ r.errorMessage }}</span>
+			</div>
+			<pre>{{ r.value | json }}</pre>
+		</div>
+
+		<p class="tu-demo__empty" *ngIf="!resultsOk.length && !loadingOk">Пока пусто</p>
+	</div>
+
+	<div class="tu-demo__col">
+		<h3>
+			Ошибки ({{ resultsFail.length }})
+			<button type="button" (click)="clearFail()" *ngIf="resultsFail.length">очистить</button>
+		</h3>
+
+		<div class="tu-demo__pending" *ngIf="loadingFail">⏳ Загрузка…</div>
+
+		<div class="tu-demo__row tu-demo__row--fail" *ngFor="let r of resultsFail">
+			<strong>{{ r.label }}</strong>
+			<div class="tu-demo__meta">
+				<span><b>from:</b> {{ r.from }}</span>
+				<span *ngIf="r.value === false"><b>errorMessage:</b> {{ r.errorMessage }}</span>
+			</div>
+			<pre>{{ r.value | json }}</pre>
+		</div>
+
+		<p class="tu-demo__empty" *ngIf="!resultsFail.length && !loadingFail">Пока пусто</p>
+	</div>
+</section>
