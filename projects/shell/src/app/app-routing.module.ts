@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-	{ path: '', redirectTo: 'tool-width-page', pathMatch: 'full' },
+	{ path: '', redirectTo: 'tool-config-to-lib', pathMatch: 'full' },
 
 	{
 		path: 'tool-config-to-lib',
@@ -35,7 +35,7 @@ const routes: Routes = [
 			import('./modules/utilities/utilities.module').then(m => m.UtilitiesModule),
 	},
 
-	{ path: '**', redirectTo: 'tool-width-page' },
+	{ path: '**', redirectTo: 'tool-config-to-lib' },
 ];
 
 @NgModule({
