@@ -2,6 +2,7 @@ import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core'
 
 // import {ToolScreenService} from "tool-screen-ang15";
 import { ToolScreenService } from '../../../../../tool-screen-ang15/src/lib/services/tool-screen.service';
+import { ThemeLighthouse } from "../../../../../tool-screen-ang15/src/lib/theme/theme.lighthouse";
 
 @Component({
 	selector: 'app-screen',
@@ -16,7 +17,15 @@ class ScreenComponent implements OnInit {
 		this.screen.setWrapperRef(ref ?? null);
 	}
 
+	public constructor(
+		private readonly themeLighthouse: ThemeLighthouse
+	){}
+
 	public ngOnInit(): void {
+		this.themeLighthouse.send$(
+			{
+				name: 'green'
+			}, 'AppComponent');
 	}
 
 	public shrink(): void {

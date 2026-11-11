@@ -29,6 +29,10 @@
 	background: linear-gradient(180deg, #0d47a1 0%, #bbdefb 100%);
 }
 
+.screen-box_green{
+	// background: green!important;
+}
+
 @media (orientation: landscape) and (max-height: 500px) {
 	/* только телефоны в горизонтали */
 	#root-tool-id { display: none; }
