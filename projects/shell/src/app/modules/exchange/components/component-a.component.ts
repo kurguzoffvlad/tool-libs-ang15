@@ -34,7 +34,7 @@ export class ComponentAComponent extends ExchangeSubscribeComponent implements O
 				to: 'ComponentBComponent',
 				source: {
 					name: exchangeNameEnum.ChangeProperty,
-					data: { name: 'messageFromA', value: this.newMessage }
+					data: { name: 'exch_messageFromA', value: this.newMessage }
 				}
 			},
 			ComponentAComponent.extendsClassName
@@ -49,7 +49,7 @@ export class ComponentAComponent extends ExchangeSubscribeComponent implements O
 				source: {
 					name: exchangeNameEnum.RunAction,
 					data: {
-						name: 'handleActionFromA',
+						name: 'exch_handleActionFromA',
 						arguments: [`Текст от A: ${this.newMessage}`]
 					}
 				}

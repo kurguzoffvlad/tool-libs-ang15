@@ -6,7 +6,7 @@ import { ExchangeLighthouse, ExchangeSubscribeComponent } from 'tool-exchange-an
 	template: `
     <div style="border:1px solid #4caf50; padding:8px; margin:8px;">
       <h3>Компонент B (подписчик)</h3>
-      <p><b>Полученное свойство messageFromA:</b> {{ messageFromA }}</p>
+      <p><b>Полученное свойство exch_messageFromA:</b> {{ exch_messageFromA }}</p>
       <p><b>Счётчик вызовов метода B:</b> {{ methodBCallCount }}</p>
       <button (click)="callA()">Вызвать метод компонента A</button>
     </div>
@@ -17,7 +17,7 @@ export class ComponentBComponent extends ExchangeSubscribeComponent implements O
 	public static readonly extendsClassName = 'ComponentBComponent';
 
 	// Свойство, которое будет менять компонент A через ChangeProperty
-	public messageFromA = '(пусто)';
+	public exch_messageFromA = '(пусто)';
 
 	// Счётчик для наглядности
 	public methodBCallCount = 0;
@@ -28,10 +28,10 @@ export class ComponentBComponent extends ExchangeSubscribeComponent implements O
 	}
 
 	// Метод, который будет вызывать компонент A через RunAction
-	public handleActionFromA(text: string): void {
+	public exch_handleActionFromA(text: string): void {
 		this.methodBCallCount++;
 		console.log('[B] handleActionFromA получил аргумент:', text);
-		this.messageFromA = `A вызвал B с аргументом: ${text}`;
+		this.exch_messageFromA = `A вызвал B с аргументом: ${text}`;
 	}
 
 	// Компонент B сам вызывает метод компонента A
@@ -43,7 +43,7 @@ export class ComponentBComponent extends ExchangeSubscribeComponent implements O
 				source: {
 					name: 'runAction' as any, // exchangeNameEnum.RunAction
 					data: {
-						name: 'handleActionFromB',
+						name: 'exch_handleActionFromB',
 						arguments: ['Привет из B!']
 					}
 				}
