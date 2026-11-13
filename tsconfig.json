@@ -25,7 +25,10 @@
 			],
 			"tool-dom-ang15": [
 				"projects/tool-dom-ang15/src/public-api.ts"
-			],
+      ],
+      "tool-dynamic-component-ang15": [
+        "dist/tool-dynamic-component-ang15"
+      ],
 			"tool-exchange-ang15": [
 				"projects/tool-exchange-ang15/src/public-api.ts"
 			],
