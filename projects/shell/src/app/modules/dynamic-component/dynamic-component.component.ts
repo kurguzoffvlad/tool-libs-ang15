@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ComponentRef, ViewChild } from '@angular/core';
 
 import { ToolDynamicComponentAng15Service, DynamicSlotDirective } from 'tool-dynamic-component-ang15';
 
@@ -16,10 +16,11 @@ export class DynamicComponentComponent {
 	constructor(private dyn: ToolDynamicComponentAng15Service) {}
 
 	open(): void {
-		this.dyn.create(MyComponent, this.slot.vcr, {
+		const ref: ComponentRef<MyComponent> =  this.dyn.create(MyComponent, this.slot.vcr, {
 			inputs: { title: 'Привет' },
-			outputs: { closed: () => this.dyn.clear(this.slot.vcr) },
-			multi: true, // несколько компонентов одновременно
+			// Передаем ссылку на этот конкретный компонент в метод удаления
+			outputs: { closed: () => this.dyn.remove(this.slot.vcr, ref) },
+			multi: true,
 		});
 	}
 }
