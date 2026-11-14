@@ -18,11 +18,12 @@ export class AppComponent implements OnInit, OnDestroy {
 	libraries: LibOption[] = [
 		{ value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
 		{ value: 'tool-dom', label: 'tool-dom' },
+		{ value: 'tool-dynamic-component', label: 'tool-dynamic-component' },
 		{ value: 'tool-exchange', label: 'tool-exchange' },
 		{ value: 'tool-page', label: 'tool-page' },
 		{ value: 'tool-screen', label: 'tool-screen' },
+		{ value: 'tool-templates', label: 'tool-templates' },
 		{ value: 'tool-utilities', label: 'tool-utilities' },
-		{ value: 'dynamic-component', label: 'dynamic-component' },
 	];
 
 	selectedLib = 'tool-config-to-lib';

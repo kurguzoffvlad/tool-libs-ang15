@@ -35,9 +35,14 @@ const routes: Routes = [
 			import('./modules/utilities/utilities.module').then(m => m.UtilitiesModule),
 	},
 	{
-		path: 'dynamic-component',
+		path: 'tool-dynamic-component',
 		loadChildren: () =>
 			import('./modules/dynamic-component/dynamic-component.module').then(m => m.DynamicComponentModule),
+	},
+	{
+		path: 'tool-templates',
+		loadChildren: () =>
+			import('./modules/templates/templates.module').then(m => m.TemplatesModule),
 	},
 
 	{ path: '**', redirectTo: 'tool-config-to-lib' },
