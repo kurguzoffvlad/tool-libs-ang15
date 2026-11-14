@@ -12,6 +12,7 @@ import { provideToolScreenConfig } from 'tool-screen-ang15';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ToolDynamicComponentAng15Module } from "tool-dynamic-component-ang15";
+import { ToolTemplatesAng15Module } from "../../../tool-templates-ang15/src/lib/tool-templates-ang15.module";
 
 @NgModule({
 	declarations: [
@@ -23,7 +24,8 @@ import { ToolDynamicComponentAng15Module } from "tool-dynamic-component-ang15";
 		HttpClientModule,
 		AppRoutingModule,
 		ToolConfigToLibAng15Module.forRoot(configFromApp),
-		ToolDynamicComponentAng15Module
+		ToolDynamicComponentAng15Module,
+		ToolTemplatesAng15Module
 	],
 	providers: [ provideToolScreenConfig(
 		{

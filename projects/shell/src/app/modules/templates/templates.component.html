@@ -1,1 +1,6 @@
-<p>templates works!</p>
+<h3>Заказы</h3>
+<ng-container *ngFor="let u of users">
+	<ng-container *ngTemplateOutlet="tpl.get('userCard'); context: { $implicit: u }"></ng-container>
+</ng-container>
+
+<ng-container *ngTemplateOutlet="tpl.get('emptyState')"></ng-container>
