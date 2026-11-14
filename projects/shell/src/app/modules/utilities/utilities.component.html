@@ -1,5 +1,5 @@
 <section class="tu-demo">
-	<h2>AwaitTryCatchService — демо</h2>
+	<h2>AwaitTryCatchService</h2>
 
 	<div class="tu-demo__actions">
 		<button type="button" (click)="runFetchOk()" [disabled]="loadingOk">
@@ -7,6 +7,30 @@
 		</button>
 		<button type="button" (click)="runFetch404()" [disabled]="loadingFail">
 			{{ loadingFail ? 'Загрузка…' : 'fetch 404 (ошибка)' }}
+		</button>
+		<button type="button" (click)="runModes()" [disabled]="loadingMode">
+			{{ loadingMode ? 'Загрузка…' : 'все ResponseMode' }}
+		</button>
+		<button type="button" (click)="runObservableOk()" [disabled]="loadingObs">
+			observable ok
+		</button>
+		<button type="button" (click)="runObservableError()" [disabled]="loadingObs">
+			observable error
+		</button>
+		<button type="button" (click)="runTimeoutOk()" [disabled]="loadingTimeout">
+			timeout ok
+		</button>
+		<button type="button" (click)="runTimeoutFail()" [disabled]="loadingTimeout">
+			timeout fail
+		</button>
+		<button type="button" (click)="runAllSettled()" [disabled]="loadingAll">
+			sendAllSettled
+		</button>
+		<button type="button" (click)="runAllStrictOk()" [disabled]="loadingAll">
+			sendAllStrict ok
+		</button>
+		<button type="button" (click)="runAllStrictFail()" [disabled]="loadingAll">
+			sendAllStrict fail
 		</button>
 	</div>
 
@@ -16,7 +40,7 @@
 			<button type="button" (click)="clearOk()" *ngIf="resultsOk.length">очистить</button>
 		</h3>
 
-		<div class="tu-demo__pending" *ngIf="loadingOk">⏳ Загрузка…</div>
+		<div class="tu-demo__pending" *ngIf="loadingOk || loadingObs || loadingTimeout || loadingAll || loadingMode">⏳ Загрузка…</div>
 
 		<div class="tu-demo__row tu-demo__row--ok" *ngFor="let r of resultsOk">
 			<strong>{{ r.label }}</strong>
