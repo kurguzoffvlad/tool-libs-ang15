@@ -10,3 +10,21 @@
 [submodule "projects/tool-exchange-ang15"]
 	path = projects/tool-exchange-ang15
 	url = git@github.com:kurguzoffvlad/tool-exchange-ang15.git
+[submodule "projects/tool-dynamic-component-ang15"]
+	path = projects/tool-dynamic-component-ang15
+	url = git@github.com:kurguzoffvlad/tool-dynamic-component-ang15.git
+[submodule "projects/tool-page-ang15"]
+	path = projects/tool-page-ang15
+	url = git@github.com:kurguzoffvlad/tool-page-ang15.git
+[submodule "projects/tool-screen-ang15"]
+	path = projects/tool-screen-ang15
+	url = git@github.com:kurguzoffvlad/tool-screen-ang15.git
+[submodule "projects/tool-snippets"]
+	path = projects/tool-snippets
+	url = git@github.com:kurguzoffvlad/tool-snippets.git
+[submodule "projects/tool-templates-ang15"]
+	path = projects/tool-templates-ang15
+	url = git@github.com:kurguzoffvlad/tool-templates-ang15.git
+[submodule "projects/tool-utilities-ang15"]
+	path = projects/tool-utilities-ang15
+	url = git@github.com:kurguzoffvlad/tool-utilities-ang15.git
