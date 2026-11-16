@@ -4,9 +4,6 @@
 [submodule "projects/tool-dom-ang15"]
 	path = projects/tool-dom-ang15
 	url = git@github.com:kurguzoffvlad/tool-dom-ang15.git
-[submodule "projects/tool-width-page-ang15"]
-	path = projects/tool-width-page-ang15
-	url = git@github.com:kurguzoffvlad/tool-width-page-ang15.git
 [submodule "projects/tool-exchange-ang15"]
 	path = projects/tool-exchange-ang15
 	url = git@github.com:kurguzoffvlad/tool-exchange-ang15.git
