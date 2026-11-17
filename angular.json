@@ -452,5 +452,8 @@
 			}
 		  }
 		}
-	}
+  },
+  "cli": {
+    "analytics": false
+  }
 }
