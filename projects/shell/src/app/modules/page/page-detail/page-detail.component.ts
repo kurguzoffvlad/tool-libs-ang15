@@ -18,7 +18,7 @@ export class PageDetailComponent extends ExchangeSubscribeComponent implements O
 	public ScreenEnums = ScreenEnums;
 
 	// Свойство, которое меняем из PageExchange
-	public exchangeMessage: string = 'Начальное сообщение (PageDetail)';
+	public exch_exchangeMessage: string = 'Начальное сообщение (PageDetail)';
 
 	// Счётчик вызовов метода через RunAction
 	public exchangeActionCallCount = 0;
@@ -31,9 +31,9 @@ export class PageDetailComponent extends ExchangeSubscribeComponent implements O
 	}
 
 	/** Метод, вызываемый из PageExchange через RunAction */
-	public handleExchangeAction(text: string): void {
+	public exch_handleExchangeAction(text: string): void {
 		this.exchangeActionCallCount++;
-		this.exchangeMessage = `RunAction: ${text} (вызов #${this.exchangeActionCallCount})`;
+		this.exch_exchangeMessage = `RunAction: ${text} (вызов #${this.exchangeActionCallCount})`;
 	}
 
 	public override ngOnDestroy(): void {

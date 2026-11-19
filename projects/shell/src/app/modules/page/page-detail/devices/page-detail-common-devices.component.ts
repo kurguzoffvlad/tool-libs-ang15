@@ -22,7 +22,7 @@ export class PageDetailCommonDevicesComponent extends ExchangeSubscribeComponent
 	@Input() viewDataPage: any = {};
 	@Input() filters: any;
 	@Input() options: any;
-	@Input() exchangeMessage: any;
+	@Input() exch_exchangeMessage: any;
 
 	ScreenEnums = ScreenEnums;
 	OrientationScreenEnum = OrientationScreenEnum;

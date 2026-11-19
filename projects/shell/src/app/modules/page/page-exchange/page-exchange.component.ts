@@ -11,7 +11,7 @@ export class PageExchangeComponent extends ExchangeSubscribeComponent implements
 
 	@Input() public viewDataFields: any = {};
 
-	public exchChangeText: string = 'initial';
+	public exch_exchChangeText: string = 'initial';
 	public messageForDetail: string = 'Привет из PageExchange!';
 	public receivedLog: string[] = [];
 
@@ -32,7 +32,7 @@ export class PageExchangeComponent extends ExchangeSubscribeComponent implements
 			to: PageExchangeComponent.extendsClassName,
 			source: {
 				name: exchangeNameEnum.ChangeProperty,
-				data: { name: 'exchChangeText', value }
+				data: { name: 'exch_exchChangeText', value }
 			}
 		}, PageExchangeComponent.extendsClassName);
 
@@ -46,7 +46,7 @@ export class PageExchangeComponent extends ExchangeSubscribeComponent implements
 			to: 'PageDetailComponent',
 			source: {
 				name: exchangeNameEnum.ChangeProperty,
-				data: { name: 'exchangeMessage', value: this.messageForDetail }
+				data: { name: 'exch_exchangeMessage', value: this.messageForDetail }
 			}
 		}, PageExchangeComponent.extendsClassName);
 
@@ -60,11 +60,11 @@ export class PageExchangeComponent extends ExchangeSubscribeComponent implements
 			to: 'PageDetailComponent',
 			source: {
 				name: exchangeNameEnum.RunAction,
-				data: { name: 'handleExchangeAction', arguments: [ 'Пинг из PageExchange' ] }
+				data: { name: 'exch_handleExchangeAction', arguments: [ 'Пинг из PageExchange' ] }
 			}
 		}, PageExchangeComponent.extendsClassName);
 
-		this.addLog('В PageDetailComponent вызван метод handleExchangeAction()');
+		this.addLog('В PageDetailComponent вызван метод exch_handleExchangeAction()');
 	}
 
 	private addLog(text: string): void {

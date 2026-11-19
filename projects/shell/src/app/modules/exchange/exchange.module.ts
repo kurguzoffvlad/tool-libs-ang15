@@ -6,13 +6,15 @@ import { ExchangeRoutingModule } from './exchange-routing.module';
 import { ExchangeComponent } from './exchange.component';
 import { ComponentBComponent } from './components/component-b.component';
 import { ComponentAComponent } from './components/component-a.component';
+import { PostMessageComponent } from "./post-message/post-message.component";
 
 
 @NgModule({
 	declarations: [
 		ExchangeComponent,
 		ComponentAComponent,
-		ComponentBComponent
+		ComponentBComponent,
+		PostMessageComponent
 	],
 	imports: [
 		FormsModule,
