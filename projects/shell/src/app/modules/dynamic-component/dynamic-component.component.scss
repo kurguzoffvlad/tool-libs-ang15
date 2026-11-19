@@ -1,0 +1,42 @@
+.dynamic {
+	padding: 24px;
+	max-width: 960px;
+	margin: 0 auto;
+
+	&__title {
+		margin: 0 0 8px;
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	&__hint {
+		margin: 0 0 24px;
+		font-size: 14px;
+		color: #666;
+	}
+
+	&__actions {
+		margin-bottom: 24px;
+	}
+
+	&__button {
+		padding: 10px 20px;
+		border: none;
+		border-radius: 6px;
+		background: #1976d2;
+		color: #fff;
+		font-size: 14px;
+		cursor: pointer;
+		transition: background 0.15s ease;
+
+		&:hover {
+			background: #1565c0;
+		}
+	}
+
+	&__slot {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+}

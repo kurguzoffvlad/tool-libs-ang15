@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ConfigRoutingModule } from './config-routing.module';
 import { ConfigComponent } from './config.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ConfigComponent } from './config.component';
 	],
 	imports: [
 		CommonModule,
-		ConfigRoutingModule
+		ConfigRoutingModule,
+		ReactiveFormsModule,
 	]
 })
 export class ConfigModule {

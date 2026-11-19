@@ -1,3 +1,53 @@
-<p>config works!</p>
+<section class="config">
+	<h1 class="config__title">Конфигурация</h1>
 
-<p>API URL из приложения через библиотеку: {{ apiUrl }}</p>
+	<div class="config__grid">
+		<article class="config__card">
+			<h2 class="config__card-title">API URL</h2>
+
+			<p class="config__card-value">{{ apiUrl }}</p>
+		</article>
+
+		<article class="config__card">
+			<h2 class="config__card-title">Окружение</h2>
+
+			<p
+				class="config__card-value"
+				[class.config__card-value--ok]="isLocalhost"
+				[class.config__card-value--warn]="!isLocalhost"
+			>
+				{{ isLocalhost ? 'localhost' : 'production' }}
+			</p>
+		</article>
+
+		<article class="config__card">
+			<h2 class="config__card-title">Результат add</h2>
+
+			<p class="config__card-value">
+				{{ addResult !== null ? addResult : '—' }}
+			</p>
+		</article>
+	</div>
+
+	<form class="config__form" [formGroup]="form" (ngSubmit)="onAdd()">
+		<h2 class="config__form-title">Калькулятор</h2>
+
+		<div class="config__row">
+			<label class="config__field">
+				<span class="config__label">A</span>
+
+				<input class="config__input" type="number" formControlName="a" />
+			</label>
+
+			<label class="config__field">
+				<span class="config__label">B</span>
+
+				<input class="config__input" type="number" formControlName="b" />
+			</label>
+		</div>
+
+		<button class="config__button" type="submit" [disabled]="form.invalid">
+			Сложить
+		</button>
+	</form>
+</section>

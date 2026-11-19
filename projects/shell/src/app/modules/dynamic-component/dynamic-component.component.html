@@ -1,3 +1,16 @@
-<!-- слот: сюда будут вставляться динамические компоненты -->
-<button (click)="open()">Открыть</button>
-<ng-container dynSlot></ng-container>
+<section class="dynamic">
+	<h1 class="dynamic__title">Динамические компоненты</h1>
+
+	<p class="dynamic__hint">
+		Один компонент создаётся автоматически через 5 секунд, второй — по кнопке.
+	</p>
+
+	<div class="dynamic__actions">
+		<button class="dynamic__button" type="button" (click)="open()">Открыть</button>
+	</div>
+
+	<div class="dynamic__slot">
+		<!-- слот: сюда будут вставляться динамические компоненты -->
+		<ng-container dynSlot></ng-container>
+	</div>
+</section>

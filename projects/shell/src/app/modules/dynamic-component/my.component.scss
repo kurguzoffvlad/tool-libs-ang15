@@ -1,0 +1,27 @@
+.card {
+	padding: 16px;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	background: #fafafa;
+	min-width: 220px;
+
+	&__title {
+		margin: 0 0 12px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	&__button {
+		padding: 8px 16px;
+		border: none;
+		border-radius: 6px;
+		background: #c62828;
+		color: #fff;
+		font-size: 13px;
+		cursor: pointer;
+
+		&:hover {
+			background: #b71c1c;
+		}
+	}
+}
