@@ -68,7 +68,7 @@ export class PostMessageComponent extends ExchangeSubscribeComponent implements 
 		this._postMessage
 			.listen$()
 			.pipe(takeUntil(this._destroyed$))
-			.subscribe((source: IExchangeSource) => {
+			.subscribe((source: any) => {
 				this.receivedCount++;
 				this.lastReceived = source;
 
