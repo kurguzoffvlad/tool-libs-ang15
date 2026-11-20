@@ -1,5 +1,6 @@
 <header class="app-header">
 	<label for="lib-select">Библиотека:</label>
+
 	<select
 		id="lib-select"
 		[ngModel]="selectedLib"
@@ -17,4 +18,7 @@
 
 	<!-- здесь будет отображаться стартовая страница выбранной библиотеки -->
 	<router-outlet></router-outlet>
+
+	<!--Разместите хост-компонент один раз в корневом шаблоне (app.component.html). Именно он отображает активный диалог:-->
+	<tool-user-info-host />
 </main>

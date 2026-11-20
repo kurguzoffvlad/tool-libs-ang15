@@ -1,1 +1,8 @@
-<p>info works!</p>
+<button type="button" (click)="showAlert()">Alert</button>
+
+<button type="button" (click)="showPrompt()">Prompt</button>
+
+<p *ngIf="lastAlertButton">Нажата кнопка: {{ lastAlertButton }}</p>
+
+<p *ngIf="lastPrompt"> Кнопка: {{ lastPrompt.button }}, значение: {{ lastPrompt.value }} </p>
+
