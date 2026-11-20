@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-page', label: 'tool-page' },
 		{ value: 'tool-screen', label: 'tool-screen' },
 		{ value: 'tool-templates', label: 'tool-templates' },
+		{ value: 'tool-info', label: 'tool-info' },
 		{ value: 'tool-utilities', label: 'tool-utilities' },
 	];
 

@@ -43,7 +43,13 @@
 			],
 			"tool-templates-ang15": [
 				"projects/tool-templates-ang15/src/public-api.ts"
-			],
+      ],
+      "tool-user-info": [
+        "dist/tool-user-info"
+      ],
+      "tool-user-info-ang15": [
+        "dist/tool-user-info-ang15"
+      ],
 			"tool-utilities": [
 				"projects/tool-utilities-ang15/src/public-api.ts"
 			],
