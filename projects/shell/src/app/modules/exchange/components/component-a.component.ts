@@ -59,7 +59,7 @@ export class ComponentAComponent extends ExchangeSubscribeComponent implements O
 	}
 
 	/** Метод A, который вызывает компонент B через RunAction */
-	public handleActionFromB(text: string): void {
+	public exch_handleActionFromB(text: string): void {
 		this.methodACallCount++;
 		this.lastArgFromB = text;
 		console.log('[A] handleActionFromB получил:', text);
