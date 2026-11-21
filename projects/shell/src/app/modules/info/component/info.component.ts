@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ToolUserInfoAng15Service } from 'tool-user-info-ang15';
+import { ToolModalInfoAng15Service } from 'tool-modal-info-ang15';
 import { MyCustomContentComponent } from '../my-custom-content.component';
 
 /** Результат кастомного диалога */
@@ -23,7 +23,7 @@ export class InfoComponent {
 	/** Результат последнего prompt */
 	public lastPrompt: IMyDialogResult | null = null;
 
-	public constructor(private readonly _userInfo: ToolUserInfoAng15Service) {
+	public constructor(private readonly _userInfo: ToolModalInfoAng15Service) {
 	}
 
 	/** Открыть кастомный диалог и получить ответ */

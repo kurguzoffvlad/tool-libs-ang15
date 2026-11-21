@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 
 import { InfoComponent } from './component/info.component';
 import { InfoRoutingModule } from './info-routing.module';
-import { ToolUserInfoAng15Module } from 'tool-user-info-ang15';
+import { ToolModalInfoAng15Module } from 'tool-modal-info-ang15';
 import { MyCustomContentComponent } from "./my-custom-content.component";
 
 @NgModule({
@@ -16,7 +16,7 @@ import { MyCustomContentComponent } from "./my-custom-content.component";
 		CommonModule,
 		FormsModule,
 		InfoRoutingModule,
-		ToolUserInfoAng15Module,
+		ToolModalInfoAng15Module,
 	]
 })
 export class InfoModule {

@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 
 import { ToolTemplatesAng15Module } from 'tool-templates-ang15';
 import { ToolDynamicComponentAng15Module } from 'tool-dynamic-component-ang15';
-import { ToolUserInfoAng15Module } from "tool-user-info-ang15";
+import { ToolModalInfoAng15Module } from "tool-modal-info-ang15";
 
 @NgModule({
 	declarations: [
@@ -28,7 +28,7 @@ import { ToolUserInfoAng15Module } from "tool-user-info-ang15";
 		ToolConfigToLibAng15Module.forRoot(configFromApp),
 		ToolDynamicComponentAng15Module,
 		ToolTemplatesAng15Module,
-		ToolUserInfoAng15Module,
+		ToolModalInfoAng15Module,
 	],
 	providers: [ provideToolScreenConfig(
 		{

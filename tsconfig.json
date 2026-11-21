@@ -24,11 +24,11 @@
 			"tool-dom-ang15": ["projects/tool-dom-ang15/src/public-api.ts"],
 			"tool-dynamic-component-ang15": ["projects/tool-dynamic-component-ang15/src/public-api.ts"],
 			"tool-exchange-ang15": ["projects/tool-exchange-ang15/src/public-api.ts"],
+			"tool-modal-info-ang15": ["projects/tool-modal-info-ang15/src/public-api.ts"],
 			"tool-page-ang15": ["projects/tool-page-ang15/src/public-api.ts"],
 			"tool-screen-ang15": ["projects/tool-screen-ang15/src/public-api.ts"],
 			"tool-snippets": [ "dist/tool-snippets"],
 			"tool-templates-ang15": ["projects/tool-templates-ang15/src/public-api.ts"],
-			"tool-user-info-ang15": ["projects/tool-user-info-ang15/src/public-api.ts"],
 			"tool-utilities": [ "projects/tool-utilities-ang15/src/public-api.ts"],
 			"tool-width-page-ang15": ["projects/tool-width-page-ang15/src/public-api.ts"]
 		},

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { ToolUserInfoAng15Service } from 'tool-user-info-ang15';
+import { ToolModalInfoAng15Service } from 'tool-modal-info-ang15';
 
 /** Результат кастомного диалога */
 interface IMyDialogResult {
@@ -112,7 +112,7 @@ export class MyCustomContentComponent {
 	public value = '';
 
 	public constructor(
-		private readonly _userInfo: ToolUserInfoAng15Service,
+		private readonly _userInfo: ToolModalInfoAng15Service,
 	) {
 	}
 
