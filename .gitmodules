@@ -22,9 +22,9 @@
 [submodule "projects/tool-templates-ang15"]
 	path = projects/tool-templates-ang15
 	url = git@github.com:kurguzoffvlad/tool-templates-ang15.git
-[submodule "projects/tool-user-info-ang15"]
-	path = projects/tool-user-info-ang15
-	url = git@github.com:kurguzoffvlad/tool-user-info-ang15.git
+[submodule "projects/tool-modal-info-ang15"]
+	path = projects/tool-modal-info-ang15
+	url = git@github.com:kurguzoffvlad/tool-modal-info-ang15.git
 [submodule "projects/tool-utilities-ang15"]
 	path = projects/tool-utilities-ang15
 	url = git@github.com:kurguzoffvlad/tool-utilities-ang15.git
