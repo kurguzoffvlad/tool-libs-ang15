@@ -10,13 +10,13 @@ import { MyCustomContentComponent } from "./my-custom-content.component";
 @NgModule({
 	declarations: [
 		InfoComponent,
-		MyCustomContentComponent
+		MyCustomContentComponent,
 	],
 	imports: [
 		CommonModule,
 		FormsModule,
 		InfoRoutingModule,
-		ToolUserInfoAng15Module
+		ToolUserInfoAng15Module,
 	]
 })
 export class InfoModule {
