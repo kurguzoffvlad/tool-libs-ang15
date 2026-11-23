@@ -1,6 +1,4 @@
 <button type="button" (click)="showPrompt()">Prompt</button>
 
-<p *ngIf="lastAlertButton">Нажата кнопка: {{ lastAlertButton }}</p>
-
-<p *ngIf="lastPrompt"> Кнопка: {{ lastPrompt.button }}, значение: {{ lastPrompt.value }} </p>
+<p *ngIf="modalDialog"> Кнопка: {{ modalDialog.button }}, значение: {{ modalDialog.value }} </p>
 

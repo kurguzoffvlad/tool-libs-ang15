@@ -17,18 +17,15 @@ interface IMyDialogResult {
 	styleUrls: ['./info.component.scss'],
 })
 export class InfoComponent {
-	/** Результат последнего alert */
-	public lastAlertButton: string = '';
-
 	/** Результат последнего prompt */
-	public lastPrompt: IMyDialogResult | null = null;
+	public modalDialog: IMyDialogResult | null = null;
 
 	public constructor(private readonly _userInfo: ToolModalInfoAng15Service) {
 	}
 
 	/** Открыть кастомный диалог и получить ответ */
 	public async showPrompt(): Promise<void> {
-		this.lastPrompt = await this._userInfo.open<IMyDialogResult>(
+		this.modalDialog = await this._userInfo.open<IMyDialogResult>(
 			MyCustomContentComponent,
 			{
 				title: 'Ваше имя',
