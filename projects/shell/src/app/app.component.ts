@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-templates', label: 'tool-templates' },
 		{ value: 'tool-info', label: 'tool-info' },
 		{ value: 'tool-utilities', label: 'tool-utilities' },
+		{ value: 'tool-material', label: 'tool-material' },
 	];
 
 	selectedLib = 'tool-config-to-lib';

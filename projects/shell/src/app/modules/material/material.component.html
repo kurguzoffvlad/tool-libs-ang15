@@ -1,0 +1,147 @@
+<!-- material.component.html — шаблон с элементами Material -->
+
+<!-- MatToolbar: шапка -->
+<mat-toolbar color="primary">
+	<mat-icon>notifications</mat-icon>
+	<span>Напоминалка</span>
+	<span class="spacer"></span>
+
+	<!-- MatBadge: счётчик активных напоминаний на иконке -->
+	<mat-icon matBadge="{{ activeCount }}" matBadgeColor="warn"
+			  matBadgeHidden="{{ activeCount === 0 }}">assignment</mat-icon>
+
+	<!-- MatMenu: меню выбора вида -->
+	<button mat-icon-button [matMenuTriggerFor]="viewMenu" matTooltip="Вид отображения">
+		<mat-icon>more_vert</mat-icon>
+	</button>
+	<mat-menu #viewMenu="matMenu">
+		<button mat-menu-item (click)="view = 'list'">
+			<mat-icon>view_list</mat-icon><span>Список</span>
+		</button>
+		<button mat-menu-item (click)="view = 'table'">
+			<mat-icon>table</mat-icon><span>Таблица</span>
+		</button>
+	</mat-menu>
+</mat-toolbar>
+
+<div class="container">
+
+	<!-- MatProgressSpinner: индикатор загрузки -->
+	<div *ngIf="loading" class="loading">
+		<mat-spinner></mat-spinner>
+	</div>
+
+	<ng-container *ngIf="!loading">
+
+		<!-- MatCard: форма добавления -->
+		<mat-card>
+			<mat-card-content>
+				<mat-form-field appearance="outline" class="full">
+					<mat-label>Текст напоминания</mat-label>
+					<input matInput [(ngModel)]="title" placeholder="Что нужно сделать?">
+				</mat-form-field>
+
+				<mat-form-field appearance="outline">
+					<mat-label>Дата</mat-label>
+					<input matInput [matDatepicker]="picker" [(ngModel)]="date">
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker #picker></mat-datepicker>
+				</mat-form-field>
+
+				<mat-form-field appearance="outline">
+					<mat-label>Приоритет</mat-label>
+					<mat-select [(ngModel)]="priority">
+						<mat-option *ngFor="let p of priorities" [value]="p">{{ p }}</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+				<button mat-raised-button color="primary" (click)="add()">
+					<mat-icon>add</mat-icon> Добавить
+				</button>
+			</mat-card-content>
+		</mat-card>
+
+		<mat-slide-toggle [(ngModel)]="showDone">Показывать выполненные</mat-slide-toggle>
+		<mat-divider></mat-divider>
+
+		<!-- ============ ВИД: СПИСОК (MatList) ============ -->
+		<mat-list *ngIf="view === 'list'">
+			<mat-list-item *ngFor="let r of visible">
+				<mat-chip [ngClass]="r.priority">{{ r.priority }}</mat-chip>
+				<span [class.done]="r.done">{{ r.title }}
+					<small *ngIf="r.date"> — {{ r.date | date:'dd.MM.yyyy' }}</small>
+        </span>
+
+				<!-- MatTooltip: подсказка при наведении -->
+				<button mat-icon-button (click)="toggle(r.id)" matTooltip="Отметить выполненным">
+					<mat-icon>{{ r.done ? 'undo' : 'check' }}</mat-icon>
+				</button>
+				<button mat-icon-button color="warn" (click)="remove(r)" matTooltip="Удалить">
+					<mat-icon>delete</mat-icon>
+				</button>
+			</mat-list-item>
+		</mat-list>
+
+		<!-- ============ ВИД: ТАБЛИЦА (MatTable + MatSort + MatPaginator) ============ -->
+		<ng-container *ngIf="view === 'table'">
+
+			<!-- поле фильтра -->
+			<mat-form-field appearance="outline" class="full">
+				<mat-label>Поиск</mat-label>
+				<input matInput (keyup)="applyFilter($event)" placeholder="Фильтр по таблице...">
+			</mat-form-field>
+
+			<table mat-table [dataSource]="dataSource" matSort class="full">
+
+				<!-- колонка: текст -->
+				<ng-container matColumnDef="title">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Напоминание </th>
+					<td mat-cell *matCellDef="let r" [class.done]="r.done"> {{ r.title }} </td>
+				</ng-container>
+
+				<!-- колонка: дата -->
+				<ng-container matColumnDef="date">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Дата </th>
+					<td mat-cell *matCellDef="let r"> {{ r.date | date:'dd.MM.yyyy' }} </td>
+				</ng-container>
+
+				<!-- колонка: приоритет -->
+				<ng-container matColumnDef="priority">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Приоритет </th>
+					<td mat-cell *matCellDef="let r">
+						<mat-chip [ngClass]="r.priority">{{ r.priority }}</mat-chip>
+					</td>
+				</ng-container>
+
+				<!-- колонка: статус -->
+				<ng-container matColumnDef="done">
+					<th mat-header-cell *matHeaderCellDef mat-sort-header> Статус </th>
+					<td mat-cell *matCellDef="let r">
+						<mat-icon>{{ r.done ? 'check_circle' : 'radio_button_unchecked' }}</mat-icon>
+					</td>
+				</ng-container>
+
+				<!-- колонка: действия -->
+				<ng-container matColumnDef="actions">
+					<th mat-header-cell *matHeaderCellDef></th>
+					<td mat-cell *matCellDef="let r">
+						<button mat-icon-button (click)="toggle(r.id)" matTooltip="Выполнено">
+							<mat-icon>{{ r.done ? 'undo' : 'check' }}</mat-icon>
+						</button>
+						<button mat-icon-button color="warn" (click)="remove(r)" matTooltip="Удалить">
+							<mat-icon>delete</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+
+			<!-- MatPaginator: постраничный вывод -->
+			<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25]"
+						   showFirstLastButtons></mat-paginator>
+		</ng-container>
+
+	</ng-container>
+</div>

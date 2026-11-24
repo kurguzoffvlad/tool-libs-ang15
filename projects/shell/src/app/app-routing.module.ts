@@ -49,6 +49,11 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/info/info.module').then(m => m.InfoModule),
 	},
+	{
+		path: 'tool-material',
+		loadChildren: () =>
+			import('./modules/material/material.module').then(m => m.MaterialModule),
+	},
 
 	{ path: '**', redirectTo: 'tool-config-to-lib' },
 ];

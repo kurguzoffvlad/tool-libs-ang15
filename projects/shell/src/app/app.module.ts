@@ -16,6 +16,7 @@ import { ToolTemplatesAng15Module } from 'tool-templates-ang15';
 import { ToolDynamicComponentAng15Module } from 'tool-dynamic-component-ang15';
 import { ToolModalInfoAng15Module } from "tool-modal-info-ang15";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialModule } from "./modules/material/material.module";
 
 @NgModule({
 	declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 		ToolDynamicComponentAng15Module,
 		ToolTemplatesAng15Module,
 		ToolModalInfoAng15Module,
-		BrowserAnimationsModule,
+		BrowserAnimationsModule,   // анимации Material (без них компоненты не работают)
+		MaterialModule,
 	],
 	providers: [ provideToolScreenConfig(
 		{

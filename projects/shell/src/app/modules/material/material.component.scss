@@ -1,0 +1,25 @@
+// material.component.scss
+
+.container {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 0 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.full { width: 100%; }
+
+mat-form-field { margin-right: 12px; }
+
+.done { text-decoration: line-through; opacity: 0.6; }
+
+// цвета тегов приоритета
+.высокий { background-color: #f44336 !important; }   // красный
+.средний { background-color: #ff9800 !important; }   // оранжевый
+.низкий  { background-color: #4caf50 !important; }   // зелёный
+
+.spacer { flex: 1 1 auto; }            // расталкивает элементы шапки
+.loading { display: flex; justify-content: center; padding: 40px; }
+table { width: 100%; }                  // таблица на всю ширину
