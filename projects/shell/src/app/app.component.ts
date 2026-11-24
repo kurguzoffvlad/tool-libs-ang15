@@ -20,12 +20,12 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-dom', label: 'tool-dom' },
 		{ value: 'tool-dynamic-component', label: 'tool-dynamic-component' },
 		{ value: 'tool-exchange', label: 'tool-exchange' },
+		{ value: 'tool-info', label: 'tool-info' },
+		{ value: 'tool-material', label: 'tool-material' },
 		{ value: 'tool-page', label: 'tool-page' },
 		{ value: 'tool-screen', label: 'tool-screen' },
 		{ value: 'tool-templates', label: 'tool-templates' },
-		{ value: 'tool-info', label: 'tool-info' },
 		{ value: 'tool-utilities', label: 'tool-utilities' },
-		{ value: 'tool-material', label: 'tool-material' },
 	];
 
 	selectedLib = 'tool-config-to-lib';
