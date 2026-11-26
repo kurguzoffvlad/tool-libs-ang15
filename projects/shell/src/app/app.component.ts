@@ -51,7 +51,11 @@ export class AppComponent implements OnInit, OnDestroy {
 				takeUntil(this.destroy$),
 			).subscribe(seg => {
 				if (seg) this.selectedLib = seg;
+
 				this.isVisibleInterfaces = seg === 'tool-interfaces';
+				if ( this.isVisibleInterfaces) {
+					this.selectedInterfaces = 'tool-material';
+				}
 			});
 	}
 
