@@ -50,14 +50,9 @@ const routes: Routes = [
 			import('./modules/info/info.module').then(m => m.InfoModule),
 	},
 	{
-		path: 'tool-material',
+		path: 'tool-interfaces',
 		loadChildren: () =>
-			import('./modules/material/material.module').then(m => m.MaterialModule),
-	},
-	{
-		path: 'tool-ng-zorro',
-		loadChildren: () =>
-			import('./modules/ng-zorro/ng-zorro.module').then(m => m.NgZorroModule),
+			import('./modules/interfaces/material/material.module').then(m => m.MaterialModule),
 	},
 
 	{ path: '**', redirectTo: 'tool-config-to-lib' },

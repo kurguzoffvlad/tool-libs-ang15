@@ -21,15 +21,22 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-dynamic-component', label: 'tool-dynamic-component' },
 		{ value: 'tool-exchange', label: 'tool-exchange' },
 		{ value: 'tool-info', label: 'tool-info' },
-		{ value: 'tool-material', label: 'tool-material' },
-		{ value: 'tool-ng-zorro', label: 'tool-ng-zorro' },
+		{ value: 'tool-interfaces', label: 'tool-interfaces' },
 		{ value: 'tool-page', label: 'tool-page' },
 		{ value: 'tool-screen', label: 'tool-screen' },
 		{ value: 'tool-templates', label: 'tool-templates' },
 		{ value: 'tool-utilities', label: 'tool-utilities' },
 	];
 
+	interfaces: LibOption[] =[
+		{ value: 'tool-material', label: 'tool-material' },
+		{ value: 'tool-ng-zorro', label: 'tool-ng-zorro' },
+	]
+
 	selectedLib = 'tool-config-to-lib';
+
+	selectedInterfaces: string = 'tool-material';
+	isVisibleInterfaces = false;
 
 	private destroy$ = new Subject<void>();
 
@@ -43,13 +50,19 @@ export class AppComponent implements OnInit, OnDestroy {
 				map(e => e.urlAfterRedirects.split('/')[1] || ''),
 				takeUntil(this.destroy$),
 			).subscribe(seg => {
-			if (seg) this.selectedLib = seg;
-		});
+				if (seg) this.selectedLib = seg;
+				this.isVisibleInterfaces = seg === 'tool-interfaces';
+			});
 	}
 
 	onLibChange(value: string): void {
 		this.selectedLib = value;
 		this.router.navigate([ `/${value}` ]);
+	}
+
+	onInterfacesChange(value: string) {
+		this.selectedInterfaces = value;
+		this.router.navigate([ `tool-interfaces/${value}` ]);
 	}
 
 	ngOnDestroy(): void {

@@ -7,6 +7,13 @@
 		(ngModelChange)="onLibChange($event)">
 		<option *ngFor="let lib of libraries" [value]="lib.value">{{ lib.label }}</option>
 	</select>
+
+	<select *ngIf="isVisibleInterfaces"
+		id="interfaces-select"
+		[ngModel]="selectedInterfaces"
+		(ngModelChange)="onInterfacesChange($event)">
+		<option *ngFor="let inter of interfaces" [value]="inter.value">{{ inter.label }}</option>
+	</select>
 </header>
 
 <main class="app-content">

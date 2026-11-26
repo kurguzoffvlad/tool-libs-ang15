@@ -16,8 +16,8 @@ import { ToolTemplatesAng15Module } from 'tool-templates-ang15';
 import { ToolDynamicComponentAng15Module } from 'tool-dynamic-component-ang15';
 import { ToolModalInfoAng15Module } from "tool-modal-info-ang15";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "./modules/material/material.module";
-import { NgZorroModule } from "./modules/ng-zorro/ng-zorro.module";
+import { MaterialModule } from "./modules/interfaces/material/material.module";
+import { NgZorroModule } from "./modules/interfaces/ng-zorro/ng-zorro.module";
 
 import { NZ_I18N, ru_RU } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
