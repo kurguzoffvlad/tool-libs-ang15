@@ -1,0 +1,91 @@
+.app-layout {
+	min-height: 100vh;
+	background-color: #f0f2f5;
+	overflow: visible !important; /* Критично: позволяет календарю выходить за границы */
+}
+
+nz-header {
+	background-color: #001529;
+	padding: 0 24px;
+	position: relative;
+	z-index: 10; /* Должен быть ниже z-index datepicker (1050) */
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 64px;
+		max-width: 1200px;
+		margin: 0 auto;
+
+		h2 {
+			color: #fff;
+			margin: 0;
+			font-size: 20px;
+		}
+	}
+}
+
+/* Принудительно поднимаем выпадающие элементы над всем контентом */
+::ng-deep .cdk-overlay-container,
+::ng-deep .ant-picker-dropdown,
+::ng-deep .ant-select-dropdown {
+	z-index: 9999 !important;
+}
+
+/* Фикс для пустого wrapper'а: гарантируем отображение инпута */
+::ng-deep .ant-picker {
+	display: inline-flex !important;
+	align-items: center !important;
+	width: 100% !important;
+	box-sizing: border-box !important;
+}
+
+::ng-deep .ant-picker-input {
+	position: relative;
+	display: inline-flex;
+	flex: auto;
+	min-width: 1px;
+	height: 100%;
+}
+
+/* Остальные ваши стили */
+.app-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+	padding: 24px;
+}
+
+.add-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+}
+
+.add-form nz-form-item {
+	margin-bottom: 0;
+}
+
+.full-width {
+	width: 300px;
+}
+
+nz-list-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.list-actions {
+	display: flex;
+	gap: 4px;
+	margin-left: auto;
+}
+
+.done {
+	text-decoration: line-through;
+	opacity: 0.6;
+	color: #8c8c8c;
+}

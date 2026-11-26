@@ -1,0 +1,135 @@
+<nz-layout class="app-layout">
+	<!-- Шапка -->
+	<nz-header>
+		<div class="header-content">
+			<h2>Напоминалка</h2>
+
+			<!-- Кнопки переключения вида (теперь они ровно в шапке) -->
+			<nz-button-group>
+				<button nz-button [nzType]="view === 'list' ? 'primary' : 'default'" (click)="view = 'list'">
+					<span nz-icon nzType="menu"></span> Список
+				</button>
+				<button nz-button [nzType]="view === 'table' ? 'primary' : 'default'" (click)="view = 'table'">
+					<span nz-icon nzType="table"></span> Таблица
+				</button>
+			</nz-button-group>
+		</div>
+	</nz-header>
+
+	<!-- Контент -->
+	<nz-content class="app-content">
+		<nz-card nzTitle="Добавить напоминание">
+			<form nz-form nzLayout="inline" (ngSubmit)="add()" class="add-form">
+				<nz-form-item>
+					<nz-form-control>
+						<input nz-input placeholder="Текст напоминания" [(ngModel)]="title" name="title" required class="full-width" />
+					</nz-form-control>
+				</nz-form-item>
+
+				<nz-form-item>
+					<nz-form-control>
+						<nz-date-picker [(ngModel)]="date" name="date" nzPlaceHolder="Дата" nzPlacement="bottomLeft"></nz-date-picker>
+					</nz-form-control>
+				</nz-form-item>
+
+				<nz-form-item>
+					<nz-form-control>
+						<nz-select [(ngModel)]="priority" name="priority" style="width: 120px;">
+							<nz-option *ngFor="let p of priorities" [nzValue]="p" [nzLabel]="p"></nz-option>
+						</nz-select>
+					</nz-form-control>
+				</nz-form-item>
+
+				<nz-form-item>
+					<nz-form-control>
+						<button nz-button nzType="primary" type="submit">
+							<span nz-icon nzType="plus"></span> Добавить
+						</button>
+					</nz-form-control>
+				</nz-form-item>
+			</form>
+		</nz-card>
+
+		<nz-card [nzExtra]="extraTemplate" style="margin-top: 16px;">
+			<ng-template #extraTemplate>
+				<nz-switch [(ngModel)]="showDone" nzCheckedChildren="Все" nzUnCheckedChildren="Активные"></nz-switch>
+				<nz-badge [nzCount]="activeCount" [nzStyle]="{'margin-left': '16px'}"></nz-badge>
+			</ng-template>
+
+			<!-- СПИСОК -->
+			<nz-list *ngIf="view === 'list'" [nzLoading]="loading" [nzDataSource]="visible" nzBordered>
+				<nz-list-item *ngFor="let r of visible">
+					<nz-list-item-meta>
+						<nz-list-item-meta-title>
+							<span [class.done]="r.done">{{ r.title }}</span>
+						</nz-list-item-meta-title>
+						<nz-list-item-meta-description *ngIf="r.date">
+							{{ r.date | date:'dd.MM.yyyy' }}
+						</nz-list-item-meta-description>
+					</nz-list-item-meta>
+
+					<nz-tag [nzColor]="r.priority === 'высокий' ? 'red' : r.priority === 'средний' ? 'orange' : 'green'">
+						{{ r.priority }}
+					</nz-tag>
+
+					<div class="list-actions">
+						<button nz-button nzType="text" (click)="toggle(r.id)" nz-tooltip [nzTooltipTitle]="r.done ? 'Вернуть' : 'Выполнить'">
+							<span nz-icon [nzType]="r.done ? 'undo' : 'check'"></span>
+						</button>
+						<button nz-button nzType="text" nzDanger (click)="remove(r)" nz-tooltip nzTooltipTitle="Удалить">
+							<span nz-icon nzType="delete"></span>
+						</button>
+					</div>
+				</nz-list-item>
+			</nz-list>
+
+			<!-- ТАБЛИЦА -->
+			<nz-table
+				*ngIf="view === 'table'"
+				[nzData]="pagedTableData"
+				[nzLoading]="loading"
+				[nzPageSize]="pageSize"
+				[nzPageIndex]="pageIndex"
+				[nzTotal]="filteredTableData.length"
+				[nzPageSizeOptions]="pageSizeOptions"
+				[nzShowSizeChanger]="true"
+				(nzPageIndexChange)="onPageIndexChange($event)"
+				(nzPageSizeChange)="onPageSizeChange($event)">
+				<thead>
+				<tr>
+					<th nzWidth="40%">Напоминание</th>
+					<th nzWidth="20%">Дата</th>
+					<th nzWidth="15%">Приоритет</th>
+					<th nzWidth="15%">Статус</th>
+					<th nzWidth="10%">Действия</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr *ngFor="let r of pagedTableData">
+					<td [class.done]="r.done">{{ r.title }}</td>
+					<td>{{ r.date ? (r.date | date:'dd.MM.yyyy') : '-' }}</td>
+					<td>
+						<nz-tag [nzColor]="r.priority === 'высокий' ? 'red' : r.priority === 'средний' ? 'orange' : 'green'">
+							{{ r.priority }}
+						</nz-tag>
+					</td>
+					<td>
+              <span nz-icon [nzType]="r.done ? 'check-circle' : 'clock-circle'"
+					[nzTheme]="r.done ? 'fill' : 'outline'"
+					[style.color]="r.done ? '#52c41a' : '#faad14'">
+              </span>
+					</td>
+					<td>
+						<button nz-button nzType="text" (click)="toggle(r.id)">
+							<span nz-icon [nzType]="r.done ? 'undo' : 'check'"></span>
+						</button>
+						<button nz-button nzType="text" nzDanger (click)="remove(r)">
+							<span nz-icon nzType="delete"></span>
+						</button>
+					</td>
+				</tr>
+				</tbody>
+			</nz-table>
+		</nz-card>
+	</nz-content>
+</nz-layout>

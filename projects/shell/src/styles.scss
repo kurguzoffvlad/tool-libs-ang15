@@ -1,6 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/* projects/shell/src/styles.scss */
+
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+/* 3. Базовый сброс и переменные */
 :root {
 	--evo1: 4px;
 	--evo2: 8px;
@@ -12,5 +14,8 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	/* Важно: Zorro использует этот стек шрифтов.
+	   Material иногда меняет его, что ломает размеры инпутов */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
-

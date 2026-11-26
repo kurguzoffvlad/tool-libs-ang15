@@ -17,6 +17,13 @@ import { ToolDynamicComponentAng15Module } from 'tool-dynamic-component-ang15';
 import { ToolModalInfoAng15Module } from "tool-modal-info-ang15";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "./modules/material/material.module";
+import { NgZorroModule } from "./modules/ng-zorro/ng-zorro.module";
+
+import { NZ_I18N, ru_RU } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import ru from '@angular/common/locales/ru';
+
+registerLocaleData(ru); // <-- ОБЯЗАТЕЛЬНО
 
 @NgModule({
 	declarations: [
@@ -33,6 +40,7 @@ import { MaterialModule } from "./modules/material/material.module";
 		ToolModalInfoAng15Module,
 		BrowserAnimationsModule,   // анимации Material (без них компоненты не работают)
 		MaterialModule,
+		NgZorroModule,
 	],
 	providers: [ provideToolScreenConfig(
 		{
@@ -43,8 +51,9 @@ import { MaterialModule } from "./modules/material/material.module";
 					desktopMaxSize: 1500
 				},
 			resizeDebounceMs: 100
-		}
-	) ], // или - providers: [ provideToolScreenConfig()],
+		}),
+		{ provide: NZ_I18N, useValue: ru_RU }
+	], // или - providers: [ provideToolScreenConfig()],
 	bootstrap: [ AppComponent ]
 })
 

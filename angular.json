@@ -49,10 +49,17 @@
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							"projects/shell/src/favicon.ico",
-							"projects/shell/src/assets"
+							"projects/shell/src/assets",
+							{
+								"glob": "**/*",
+								"input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+								"output": "/assets/"
+							}
 						],
 						"styles": [
-							"projects/shell/src/styles.scss"
+							"node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+							"projects/shell/src/styles.scss",
+							"@angular/material/prebuilt-themes/indigo-pink.css"
 						],
 						"scripts": []
 					},

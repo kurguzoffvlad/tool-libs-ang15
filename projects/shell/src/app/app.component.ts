@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-exchange', label: 'tool-exchange' },
 		{ value: 'tool-info', label: 'tool-info' },
 		{ value: 'tool-material', label: 'tool-material' },
+		{ value: 'tool-ng-zorro', label: 'tool-ng-zorro' },
 		{ value: 'tool-page', label: 'tool-page' },
 		{ value: 'tool-screen', label: 'tool-screen' },
 		{ value: 'tool-templates', label: 'tool-templates' },
