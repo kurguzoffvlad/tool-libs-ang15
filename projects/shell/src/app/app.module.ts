@@ -23,7 +23,7 @@ import { NZ_I18N, ru_RU } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import ru from '@angular/common/locales/ru';
 
-registerLocaleData(ru); // <-- ОБЯЗАТЕЛЬНО
+registerLocaleData(ru); // <-- ОБЯЗАТЕЛЬНО для датапикера в NgZorroModule
 
 @NgModule({
 	declarations: [

@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	interfaces: LibOption[] =[
 		{ value: 'tool-material', label: 'tool-material' },
 		{ value: 'tool-ng-zorro', label: 'tool-ng-zorro' },
+		{ value: 'tool-prime-ng', label: 'tool-prime-ng' },
 	]
 
 	selectedLib = 'tool-config-to-lib';

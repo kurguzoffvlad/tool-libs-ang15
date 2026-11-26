@@ -58,6 +58,10 @@
 						],
 						"styles": [
 							"node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+							"node_modules/primeicons/primeicons.css",
+							"node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+							"node_modules/primeng/resources/primeng.min.css",
+							"node_modules/primeflex/primeflex.scss",
 							"projects/shell/src/styles.scss",
 							"@angular/material/prebuilt-themes/indigo-pink.css"
 						],

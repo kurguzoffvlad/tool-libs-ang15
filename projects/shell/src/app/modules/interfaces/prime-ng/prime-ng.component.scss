@@ -1,0 +1,52 @@
+.container {
+	max-width: 900px;
+	margin: 20px auto;
+	padding: 0 16px;
+}
+
+.form-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+
+	// Чтобы поля не прилипали друг к другу
+	input, p-calendar, p-dropdown {
+		flex: 1 1 180px;
+	}
+}
+
+.loading {
+	display: flex;
+	justify-content: center;
+	padding: 40px;
+}
+
+.done {
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+
+/* --- ФИКС ПЕРЕКЛЮЧАТЕЛЯ --- */
+.toggle-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 12px; // отступ между переключателем и текстом
+	margin-bottom: 1rem;
+}
+
+.list-item {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 16px;
+	border-bottom: 1px solid #dee2e6;
+
+	&:hover {
+		background-color: #f8f9fa;
+	}
+
+	.flex-1 {
+		flex: 1; // текст занимает всё свободное место
+	}
+}

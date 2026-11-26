@@ -10,7 +10,12 @@ const routes: Routes = [
 		path: 'tool-ng-zorro',
 		loadChildren: () =>
 			import('../ng-zorro/ng-zorro.module').then(m => m.NgZorroModule),
-	}
+	},
+	{
+		path: 'tool-prime-ng',
+		loadChildren: () =>
+			import('../prime-ng/prime-ng.module').then(m => m.PrimeNgModule),
+	},
 ];
 
 @NgModule({

@@ -1,0 +1,122 @@
+<!-- prime-ng.component.html -->
+<p-toast position="top-right"></p-toast>
+<p-confirmDialog />
+
+<p-toolbar styleClass="mb-4">
+	<ng-template pTemplate="left">
+		<div class="flex align-items-center gap-2">
+			<i class="pi pi-bell text-xl"></i>
+			<span class="text-xl font-bold">Напоминалка</span>
+		</div>
+	</ng-template>
+	<ng-template pTemplate="right">
+		<div class="flex align-items-center gap-3">
+			<!-- Бейдж с количеством активных -->
+			<span class="p-overlay-badge">
+				<i class="pi pi-clipboard text-xl"></i>
+				<span class="p-badge p-badge-danger" *ngIf="activeCount > 0">{{ activeCount }}</span>
+			</span>
+
+			<!-- Переключатель вида (используем p-button с правильным синтаксисом) -->
+			<p-button
+				[icon]="view === 'list' ? 'pi pi-list' : 'pi pi-table'"
+				styleClass="p-button-text"
+				(onClick)="view = view === 'list' ? 'table' : 'list'"
+				pTooltip="Переключить вид"
+			></p-button>
+		</div>
+	</ng-template>
+</p-toolbar>
+
+<div class="container">
+	<!-- Индикатор загрузки -->
+	<div *ngIf="loading" class="loading">
+		<p-progressSpinner></p-progressSpinner>
+	</div>
+
+	<ng-container *ngIf="!loading">
+		<!-- Форма добавления -->
+		<p-card header="Добавить напоминание" styleClass="mb-4">
+			<div class="form-grid">
+				<input pInputText [(ngModel)]="title" placeholder="Текст напоминания" class="w-full" />
+
+				<!-- В v15 используется p-calendar с привязкой [showIcon]="true" -->
+				<p-calendar [(ngModel)]="date" placeholder="Дата" [showIcon]="true" dateFormat="dd.mm.yy"></p-calendar>
+
+				<!-- В v15 используется p-dropdown -->
+				<p-dropdown [options]="priorities" [(ngModel)]="priority" placeholder="Приоритет"></p-dropdown>
+
+				<p-button label="Добавить" icon="pi pi-plus" (onClick)="add()"></p-button>
+			</div>
+		</p-card>
+
+		<!-- Переключатель выполненных -->
+		<div class="toggle-wrapper">
+			<p-inputSwitch [(ngModel)]="showDone"></p-inputSwitch>
+			<span>Показывать выполненные</span>
+		</div>
+
+		<p-divider></p-divider>
+
+		<!-- ВИД: СПИСОК -->
+		<ng-container *ngIf="view === 'list'">
+			<div class="list-container">
+				<div *ngFor="let r of visible" class="list-item flex align-items-center gap-3 p-3 border-bottom-1 surface-border">
+					<p-tag [value]="r.priority" [severity]="r.priority === 'высокий' ? 'danger' : r.priority === 'средний' ? 'warn' : 'success'"></p-tag>
+					<span [class.done]="r.done" class="flex-1">{{ r.title }} <small *ngIf="r.date">— {{ r.date | date:'dd.MM.yyyy' }}</small></span>
+					<p-button [icon]="r.done ? 'pi pi-undo' : 'pi pi-check'" styleClass="p-button-text" (onClick)="toggle(r.id)" pTooltip="Отметить"></p-button>
+					<p-button icon="pi pi-trash" styleClass="p-button-danger" (onClick)="remove(r)" pTooltip="Удалить"></p-button>
+				</div>
+				<div *ngIf="visible.length === 0" class="p-3 text-center text-color-secondary">Нет напоминаний</div>
+			</div>
+		</ng-container>
+
+		<!-- ВИД: ТАБЛИЦА -->
+		<ng-container *ngIf="view === 'table'">
+			<div class="flex justify-content-end mb-3">
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input pInputText type="text" placeholder="Поиск..." (input)="onSearch($event)" class="w-full md:w-20rem" />
+    </span>
+			</div>
+
+			<p-table
+				#dt
+				[value]="visible"
+				[paginator]="true"
+				[rows]="pageSize"
+				[rowsPerPageOptions]="[5, 10, 25]"
+				[globalFilterFields]="['title', 'priority']"
+				dataKey="id"
+				styleClass="p-datatable-sm"
+			>
+				<ng-template pTemplate="header">
+					<tr>
+						<th pSortableColumn="title">Напоминание <p-sortIcon field="title"></p-sortIcon></th>
+						<th pSortableColumn="date">Дата <p-sortIcon field="date"></p-sortIcon></th>
+						<th pSortableColumn="priority">Приоритет <p-sortIcon field="priority"></p-sortIcon></th>
+						<th pSortableColumn="done">Статус <p-sortIcon field="done"></p-sortIcon></th>
+						<th style="width: 100px;"></th>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="body" let-r>
+					<tr>
+						<td [class.done]="r.done">{{ r.title }}</td>
+						<td>{{ r.date ? (r.date | date:'dd.MM.yyyy') : '-' }}</td>
+						<td>
+							<p-tag [value]="r.priority" [styleClass]="r.priority === 'высокий' ? 'p-tag-danger' : r.priority === 'средний' ? 'p-tag-warning' : 'p-tag-success'"></p-tag>
+						</td>
+						<td>
+							<i class="pi" [ngClass]="r.done ? 'pi-check-circle text-green-500' : 'pi-clock text-orange-500'"></i>
+						</td>
+						<td>
+							<p-button [icon]="r.done ? 'pi pi-undo' : 'pi pi-check'" styleClass="p-button-text" (onClick)="toggle(r.id)"></p-button>
+							<p-button icon="pi pi-trash" styleClass="p-button-text p-button-danger" (onClick)="remove(r)"></p-button>
+						</td>
+					</tr>
+				</ng-template>
+			</p-table>
+		</ng-container>
+
+	</ng-container>
+</div>
