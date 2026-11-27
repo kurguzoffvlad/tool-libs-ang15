@@ -23,6 +23,7 @@
 			"tool-config-to-lib-ang15": ["projects/tool-config-to-lib-ang15/src/public-api.ts"],
 			"tool-dom-ang15": ["projects/tool-dom-ang15/src/public-api.ts"],
 			"tool-dynamic-component-ang15": ["projects/tool-dynamic-component-ang15/src/public-api.ts"],
+			"tool-dynamic-form-ang15": ["projects/tool-dynamic-form-ang15"],
 			"tool-exchange-ang15": ["projects/tool-exchange-ang15/src/public-api.ts"],
 			"tool-modal-info-ang15": ["projects/tool-modal-info-ang15/src/public-api.ts"],
 			"tool-page-ang15": ["projects/tool-page-ang15/src/public-api.ts"],

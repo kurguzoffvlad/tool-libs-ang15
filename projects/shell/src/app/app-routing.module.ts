@@ -54,6 +54,11 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./modules/interfaces/material/material.module').then(m => m.MaterialModule),
 	},
+	{
+		path: 'tool-dynamic-form',
+		loadChildren: () =>
+			import('./modules/dynamic-form/dynamic-form.module').then(m => m.DynamicFormModule),
+	},
 
 	{ path: '**', redirectTo: 'tool-config-to-lib' },
 ];

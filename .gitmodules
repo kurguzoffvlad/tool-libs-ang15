@@ -28,3 +28,6 @@
 [submodule "projects/tool-utilities-ang15"]
 	path = projects/tool-utilities-ang15
 	url = git@github.com:kurguzoffvlad/tool-utilities-ang15.git
+[submodule "projects/tool-dynamic-form-ang15"]
+	path = projects/tool-dynamic-form-ang15
+	url = git@github.com:kurguzoffvlad/tool-dynamic-form-ang15.git

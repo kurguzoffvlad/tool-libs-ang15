@@ -19,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		{ value: 'tool-config-to-lib', label: 'tool-config-to-lib' },
 		{ value: 'tool-dom', label: 'tool-dom' },
 		{ value: 'tool-dynamic-component', label: 'tool-dynamic-component' },
+		{ value: 'tool-dynamic-form', label: 'tool-dynamic-form' },
 		{ value: 'tool-exchange', label: 'tool-exchange' },
 		{ value: 'tool-info', label: 'tool-info' },
 		{ value: 'tool-interfaces', label: 'tool-interfaces' },
