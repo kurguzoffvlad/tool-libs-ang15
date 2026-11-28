@@ -133,69 +133,136 @@ export class DynamicFormComponent implements OnInit {
 
 	public initFields() {
 		this.fields = [
+			// 1. Текстовое поле
 			{
-				control: new FormControl(this.user['birthday']),
-				fieldName: 'birthday',
-				name: 'birthday',
-				controlType: 'date',
-				label: 'Дата рождения',
-				placeholder: 'Выберите дату'
+				control: new FormControl('Мое текстовое поле'),
+				fieldName: 'textField',
+				name: 'textField',
+				controlType: 'text',
+				label: 'Текстовое поле (text)',
+				placeholder: 'Введите текст'
 			},
+			// 2. Textarea (многострочное)
 			{
-				control: new FormControl(this.user['male']),
-				fieldName: 'male',
-				name: 'male',
-				classList: ['wide', 'right-space'],
+				control: new FormControl('Многострочный текст\nВторая строка'),
+				fieldName: 'textareaField',
+				name: 'textareaField',
+				classList: ['wide'], // на всю ширину
+				controlType: 'textarea',
+				label: 'Многострочное (textarea)',
+			},
+			// 3. Числовое поле
+			{
+				control: new FormControl(12345),
+				fieldName: 'numberField',
+				name: 'numberField',
+				controlType: 'number',
+				label: 'Число (number)',
+			},
+			// 4. Пароль
+			{
+				control: new FormControl('secret123'),
+				fieldName: 'passwordField',
+				name: 'passwordField',
+				controlType: 'password',
+				label: 'Пароль (password)',
+				canShowPassword: true // если библиотека поддерживает
+			},
+			// 5. Email
+			{
+				control: new FormControl('test@example.com'),
+				fieldName: 'emailField',
+				name: 'emailField',
+				controlType: 'email',
+				label: 'Email (email)',
+			},
+			// 6. Чекбокс
+			{
+				control: new FormControl(true),
+				fieldName: 'checkboxField',
+				name: 'checkboxField',
+				controlType: 'checkbox',
+				label: 'Согласие (checkbox)',
+			},
+			// 7. Селект (выпадающий список)
+			{
+				control: new FormControl('val2'),
+				fieldName: 'selectField',
+				name: 'selectField',
 				controlType: 'select',
+				label: 'Выпадающий список (select)',
 				options: [
-					{
-						value: true,
-						name: 'Мужской'
-					},
-					{
-						value: false,
-						name: 'Женский'
-					}
-				],
-				label: 'Пол',
+					{ value: 'val1', name: 'Вариант 1' },
+					{ value: 'val2', name: 'Вариант 2' },
+					{ value: 'val3', name: 'Вариант 3' }
+				]
 			},
+			// 8. Радио кнопки
 			{
-				control: new FormControl(this.user['passportNumber']),
-				fieldName: 'passportNumber',
-				name: 'passportNumber',
-				controlType: 'text',
-				label: 'Паспорт с/н',
+				control: new FormControl('radio1'),
+				fieldName: 'radioField',
+				name: 'radioField',
+				controlType: 'radio',
+				label: 'Радио (radio)',
+				options: [
+					{ value: 'radio1', name: 'Да' },
+					{ value: 'radio2', name: 'Нет' }
+				]
 			},
+			// 9. Датапикер
 			{
-				control: new FormControl(this.user['passportDateIssue']),
-				fieldName: 'passportDateIssue',
-				name: 'passportDateIssue',
+				control: new FormControl(new Date()),
+				fieldName: 'dateField',
+				name: 'dateField',
 				controlType: 'date',
-				label: 'Дата выдачи паспорта',
+				label: 'Дата (date)',
 				placeholder: 'Выберите дату'
 			},
+			// 10. Группа (group)
 			{
-				control: new FormControl(this.user['passportPlaceIssue']),
-				fieldName: 'passportPlaceIssue',
-				name: 'passportPlaceIssue',
-				classList: ['wide'],
-				controlType: 'text',
-				label: 'Место выдачи',
+				control: new FormControl(''), // Для группы контрол не обязателен, но интерфейс требует
+				fieldName: 'groupField',
+				name: 'groupField',
+				controlType: 'group',
+				label: 'Группа (group)',
+				fields: [ // Вложенные поля для группы
+					{
+						control: new FormControl('Вложенное поле 1'),
+						fieldName: 'nested1',
+						name: 'nested1',
+						controlType: 'text',
+						label: 'Вложенный текст'
+					}
+				]
 			},
+			// 11. Label (текстовая метка, не инпут)
 			{
-				control: new FormControl(this.user['passportSubdivisionCode']),
-				fieldName: 'passportSubdivisionCode',
-				name: 'passportSubdivisionCode',
-				controlType: 'text',
-				label: 'Код подразделения',
+				control: new FormControl(''),
+				fieldName: 'labelField',
+				name: 'labelField',
+				controlType: 'label',
+				label: 'Это просто текст (label)',
 			},
+			// 12. Автокомплит
 			{
-				control: new FormControl(this.user['placeOfBirth']),
-				fieldName: 'placeOfBirth',
-				name: 'placeOfBirth',
-				classList: ['wide'],
-				controlType: 'text',
-				label: 'Место рождения',
+				control: new FormControl(''),
+				fieldName: 'autocompleteField',
+				name: 'autocompleteField',
+				controlType: 'autocomplete',
+				label: 'Автокомплит (autocomplete)',
+				options: [
+					{ value: '1', name: 'Москва' },
+					{ value: '2', name: 'Санкт-Петербург' },
+					{ value: '3', name: 'Казань' }
+				]
+			},
+			// 13. Дата и время
+			{
+				control: new FormControl(new Date()),
+				fieldName: 'datetimeField',
+				name: 'datetimeField',
+				controlType: 'datetimepicker',
+				label: 'Дата и время (datetimepicker)',
 			}
 		];
 	}
