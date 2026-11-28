@@ -23,6 +23,9 @@ import { NZ_I18N, ru_RU } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import ru from '@angular/common/locales/ru';
 
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MY_DATE_FORMATS } from "./modules/interfaces/material/date-formats";
+
 registerLocaleData(ru); // <-- ОБЯЗАТЕЛЬНО для датапикера в NgZorroModule
 
 @NgModule({
@@ -52,8 +55,10 @@ registerLocaleData(ru); // <-- ОБЯЗАТЕЛЬНО для датапикер�
 				},
 			resizeDebounceMs: 100
 		}),
-		{ provide: NZ_I18N, useValue: ru_RU }
-	], // или - providers: [ provideToolScreenConfig()],
+		{ provide: NZ_I18N, useValue: ru_RU },// или - providers: [ provideToolScreenConfig()],
+		{ provide: MAT_DATE_LOCALE, useValue: 'ru-RU' },
+		{ provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+	],
 	bootstrap: [ AppComponent ]
 })
 

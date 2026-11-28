@@ -23,20 +23,21 @@ export class DynamicFormComponent implements OnInit {
 		externalId: 'externalId',
 		postExternal: 'postExternal',
 		roleId: 'roleId',
-		birthday: '11/19/2026',
+		birthday: '2026-11-19',
 		male: 'true',
 		passportNumber: '123456789',
-		passportDateIssue: '11/19/2026',
+		passportDateIssue: '2026-11-19',
 		passportPlaceIssue: 'Саранск',
 		passportSubdivisionCode: '033',
 		status: 'status',
-		lockDate: '11/19/2026',
-		creationDate: '11/19/2026',
+		lockDate: '2026-11-19',
+		creationDate: '2026-11-19',
 		password: 'password',
 		email: 'kvg@gmail.ru',
 		placeOfBirth: 'placeOfBirth',
 		additionalPermissions: 'additionalPermissions',
 	}
+
 	public passportForm!: FormGroup;
 	public formState: FormState = { submitted: false };
 	public fields: Array<IFieldModel> = [];
@@ -52,18 +53,34 @@ export class DynamicFormComponent implements OnInit {
 	ngOnInit(): void {
 		this.initFields();
 
-		// Собираем контролы только для полей с заданным fieldName.
-		// Явный type guard (if (!field.fieldName) continue) сужает тип string | undefined -> string,
-		// что снимает ошибку TS2538 при strict: true.
-		const controls: Record<string, FormControl> = {};
-		for (const field of this.fields) {
-			if (!field.fieldName) {
-				continue;
-			}
-			controls[field.fieldName] = field.control;
-		}
-		this.passportForm = new FormGroup(controls);
+		this.passportForm = new FormGroup(
+			this.fields.reduce<Record<string, FormControl>>((group, field
+			) => {
 
+				if (field.fieldName) {
+					group[field.fieldName] = field.control;
+				}
+
+				return group;
+		}, {}));
+
+		if (this.user.id !== '0') {
+			this.fields.map(field => {
+				if (field.fieldName === 'birthday') {
+					if (!this.user['birthday']) {
+						field.control.setValue(null);
+					} else {
+						field.control.setValue( new Date(this.user['birthday']) );
+					}
+				} else if (field.fieldName === 'passportDateIssue') {
+					if (!this.user['passportDateIssue']) {
+						field.control.setValue(null);
+					}else {
+						field.control.setValue( new Date(this.user['passportDateIssue']) );
+					}
+				}
+			});
+		}
 		/** ----------------------------------------------------------------------------------------------------------*/
 
 		// Инициализация формы с одним предзаполненным контактом
@@ -113,10 +130,11 @@ export class DynamicFormComponent implements OnInit {
 	}
 
 	/** ----------------------------------------------------------------------------------------------------------*/
-	initFields() {
+
+	public initFields() {
 		this.fields = [
 			{
-				control: new FormControl(''),
+				control: new FormControl(this.user['birthday']),
 				fieldName: 'birthday',
 				name: 'birthday',
 				controlType: 'date',
@@ -179,7 +197,6 @@ export class DynamicFormComponent implements OnInit {
 				controlType: 'text',
 				label: 'Место рождения',
 			}
-
 		];
 	}
 }

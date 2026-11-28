@@ -54,8 +54,10 @@
 
 <div>
 	<h4 class="title">Паспортные данные пользователя</h4>
-	<form [formGroup]="passportForm" >
-		<tool-df [form]="passportForm" [fields]="fields" [state]="formState"></tool-df>
+	<form [formGroup]="passportForm">
+		<div class="form-grid">
+			<tool-df [form]="passportForm" [fields]="fields" [state]="formState"></tool-df>
+		</div>
 	</form>
 </div>
 

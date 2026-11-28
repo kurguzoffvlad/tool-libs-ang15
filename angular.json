@@ -64,7 +64,8 @@
 							"node_modules/primeng/resources/primeng.min.css",
 							"node_modules/primeflex/primeflex.scss",
 							"projects/shell/src/styles.scss",
-							"@angular/material/prebuilt-themes/indigo-pink.css"
+							"@angular/material/prebuilt-themes/indigo-pink.css",
+							"projects/tool-dynamic-form-ang15/src/lib/styles/styles.scss"
 						],
 						"scripts": []
 					},
