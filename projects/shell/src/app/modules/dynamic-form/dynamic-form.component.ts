@@ -1,8 +1,12 @@
 // dynamic-form.component.ts
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { FormState } from 'tool-dynamic-form-ang15';
+import { IFieldModel } from 'tool-dynamic-form-ang15';
 
 import { ContactForm, DemoForm } from './contact-form.interface';
+
 
 @Component({
 	selector: 'app-dynamic-form',
@@ -10,6 +14,34 @@ import { ContactForm, DemoForm } from './contact-form.interface';
 	styleUrls: ['./dynamic-form.component.scss']
 })
 export class DynamicFormComponent implements OnInit {
+	public user = {
+		id: 'string',
+		login: 'string',
+		firstName: 'string',
+		middleName: 'string',
+		lastName: 'string',
+		externalId: 'string',
+		postExternal: 'string',
+		roleId: 'string',
+		birthday: 'string',
+		male: 'string',
+		passportNumber: 'string',
+		passportDateIssue: 'string',
+		passportPlaceIssue: 'string',
+		passportSubdivisionCode: 'string',
+		status: 'string',
+		lockDate: 'string',
+		creationDate: 'string',
+		password: 'string',
+		email: 'string',
+		placeOfBirth: 'string',
+		additionalPermissions: 'string',
+	}
+	public passportForm!: FormGroup;
+	public formState: FormState = { submitted: false };
+	public fields: Array<IFieldModel> = [];
+
+
 	// Основная форма
 	demoForm!: FormGroup<DemoForm>;
 
@@ -18,6 +50,22 @@ export class DynamicFormComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		this.initFields();
+
+		// Собираем контролы только для полей с заданным fieldName.
+		// Явный type guard (if (!field.fieldName) continue) сужает тип string | undefined -> string,
+		// что снимает ошибку TS2538 при strict: true.
+		const controls: Record<string, FormControl> = {};
+		for (const field of this.fields) {
+			if (!field.fieldName) {
+				continue;
+			}
+			controls[field.fieldName] = field.control;
+		}
+		this.passportForm = new FormGroup(controls);
+
+		/** ----------------------------------------------------------------------------------------------------------*/
+
 		// Инициализация формы с одним предзаполненным контактом
 		this.demoForm = this.fb.group<DemoForm>({
 			title: this.fb.control('Список контактов', { nonNullable: true }),
@@ -62,5 +110,76 @@ export class DynamicFormComponent implements OnInit {
 			// Помечаем все контролы как touched для отображения ошибок
 			this.demoForm.markAllAsTouched();
 		}
+	}
+
+	/** ----------------------------------------------------------------------------------------------------------*/
+	initFields() {
+		this.fields = [
+			{
+				control: new FormControl(''),
+				fieldName: 'birthday',
+				name: 'birthday',
+				controlType: 'date',
+				label: 'Дата рождения',
+				placeholder: 'Выберите дату'
+			},
+			{
+				control: new FormControl(this.user['male']),
+				fieldName: 'male',
+				name: 'male',
+				classList: ['wide', 'right-space'],
+				controlType: 'select',
+				options: [
+					{
+						value: true,
+						name: 'Мужской'
+					},
+					{
+						value: false,
+						name: 'Женский'
+					}
+				],
+				label: 'Пол',
+			},
+			{
+				control: new FormControl(this.user['passportNumber']),
+				fieldName: 'passportNumber',
+				name: 'passportNumber',
+				controlType: 'text',
+				label: 'Паспорт с/н',
+			},
+			{
+				control: new FormControl(this.user['passportDateIssue']),
+				fieldName: 'passportDateIssue',
+				name: 'passportDateIssue',
+				controlType: 'date',
+				label: 'Дата выдачи паспорта',
+				placeholder: 'Выберите дату'
+			},
+			{
+				control: new FormControl(this.user['passportPlaceIssue']),
+				fieldName: 'passportPlaceIssue',
+				name: 'passportPlaceIssue',
+				classList: ['wide'],
+				controlType: 'text',
+				label: 'Место выдачи',
+			},
+			{
+				control: new FormControl(this.user['passportSubdivisionCode']),
+				fieldName: 'passportSubdivisionCode',
+				name: 'passportSubdivisionCode',
+				controlType: 'text',
+				label: 'Код подразделения',
+			},
+			{
+				control: new FormControl(this.user['placeOfBirth']),
+				fieldName: 'placeOfBirth',
+				name: 'placeOfBirth',
+				classList: ['wide'],
+				controlType: 'text',
+				label: 'Место рождения',
+			}
+
+		];
 	}
 }

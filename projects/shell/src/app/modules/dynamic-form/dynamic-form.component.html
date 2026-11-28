@@ -50,5 +50,12 @@
 		<button type="button" (click)="addContact()" class="btn-add">Добавить контакт</button>
 		<button type="submit" [disabled]="demoForm.invalid" class="btn-submit">Отправить</button>
 	</div>
-
 </form>
+
+<div>
+	<h4 class="title">Паспортные данные пользователя</h4>
+	<form [formGroup]="passportForm" >
+		<tool-df [form]="passportForm" [fields]="fields" [state]="formState"></tool-df>
+	</form>
+</div>
+

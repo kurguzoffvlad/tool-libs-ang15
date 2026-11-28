@@ -47,6 +47,7 @@
 						],
 						"tsConfig": "projects/shell/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
+						"allowedCommonJsDependencies": ["moment"],
 						"assets": [
 							"projects/shell/src/favicon.ico",
 							"projects/shell/src/assets",

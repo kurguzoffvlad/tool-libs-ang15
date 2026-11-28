@@ -1,5 +1,9 @@
 /* dynamic-form.component.css */
 
+:host {
+	display: flex;
+}
+
 /* Общая обёртка формы */
 form {
 	max-width: 640px;
